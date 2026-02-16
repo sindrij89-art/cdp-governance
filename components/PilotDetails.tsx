@@ -26,29 +26,29 @@ export default function PilotDetails() {
     <section
       id="details"
       aria-labelledby="details-heading"
-      className="section-padding bg-[color:var(--cdp-surface)]"
+      className="section-padding bg-[color:var(--bg-alt)]"
     >
       <div className="container-max">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left: description */}
           <div>
-            <span className="text-sm font-semibold uppercase tracking-wider text-[color:var(--cdp-navy)]/60">
+            <span className="text-sm font-semibold uppercase tracking-wider text-[color:var(--accent)]">
               Pilot Programme
             </span>
             <h2
               id="details-heading"
-              className="mt-2 text-3xl font-semibold tracking-tight text-[color:var(--cdp-navy)] sm:text-4xl"
+              className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl"
             >
               Structured for Real-World Validation
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              The CDP Pilot runs for 30 calendar days from kickoff and is
+            <p className="mt-4 text-lg leading-relaxed text-[color:var(--text)]">
+              The CDP Pilot runs for 30 calendar days from kick-off and is
               designed for UK-based sales teams of 5&ndash;10 operators, 1&ndash;2
               managers, 1 team. What is installed: a decision-forcing governance
               overlay — minimal CRM fields, a 16-session training programme,
               manager oversight routines, and a measurement framework.
             </p>
-            <p className="mt-4 text-base text-gray-500">
+            <p className="mt-4 text-base text-[color:var(--text-muted)]">
               Acceptance = D1&ndash;D8 delivered (deliverables provided, not
               outcomes achieved). Non-renewing by default. Measured, not
               guaranteed.
@@ -57,27 +57,27 @@ export default function PilotDetails() {
             {/* Key metrics */}
             <div className="mt-8 grid grid-cols-3 gap-6">
               <div>
-                <p className="font-heading text-3xl font-semibold text-[color:var(--cdp-navy)]">30</p>
-                <p className="mt-1 text-sm text-gray-500">Calendar Days</p>
+                <p className="font-heading text-3xl font-semibold text-[color:var(--stat-number)]">30</p>
+                <p className="mt-1 text-sm text-[color:var(--text-muted)]">Calendar Days</p>
               </div>
               <div>
-                <p className="font-heading text-3xl font-semibold text-[color:var(--cdp-navy)]">5&ndash;10</p>
-                <p className="mt-1 text-sm text-gray-500">Operators</p>
+                <p className="font-heading text-3xl font-semibold text-[color:var(--stat-number)]">5&ndash;10</p>
+                <p className="mt-1 text-sm text-[color:var(--text-muted)]">Operators</p>
               </div>
               <div>
-                <p className="font-heading text-3xl font-semibold text-[color:var(--cdp-navy)]">&pound;10k</p>
-                <p className="mt-1 text-sm text-gray-500">Pilot Fee</p>
+                <p className="font-heading text-3xl font-semibold text-[color:var(--stat-number)]">&pound;10k</p>
+                <p className="mt-1 text-sm text-[color:var(--text-muted)]">Pilot Fee</p>
               </div>
             </div>
 
-            <p className="mt-4 text-xs text-gray-400">
+            <p className="mt-4 text-xs text-[color:var(--text-faint)]">
               Payment: 50% on signature, 50% on completion. UK only.
             </p>
           </div>
 
           {/* Right: what's included */}
-          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold text-[color:var(--cdp-navy)]">
+          <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8">
+            <h3 className="text-xl font-semibold">
               What&apos;s Included
             </h3>
             <ul className="mt-6 space-y-5">
@@ -85,7 +85,7 @@ export default function PilotDetails() {
                 <li key={item.label} className="flex gap-4">
                   <div className="mt-1 flex-shrink-0">
                     <svg
-                      className="h-5 w-5 text-[color:var(--cdp-navy)]"
+                      className="h-5 w-5 text-[color:var(--accent)]"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -100,8 +100,8 @@ export default function PilotDetails() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">{item.label}</p>
-                    <p className="mt-0.5 text-sm text-gray-500">
+                    <p className="font-medium text-[color:var(--inclusion-label)]">{item.label}</p>
+                    <p className="mt-0.5 text-sm text-[color:var(--inclusion-desc)]">
                       {item.description}
                     </p>
                   </div>

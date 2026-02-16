@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "How long does setup take?",
     answer:
-      "The pilot runs for 30 calendar days from kickoff. Pre-kickoff requirements (CRM access, operator roster, training schedule) are confirmed during onboarding.",
+      "The pilot runs for 30 calendar days from kick-off. Pre-kick-off requirements (CRM access, operator roster, training schedule) are confirmed during onboarding.",
   },
 ];
 
@@ -46,36 +46,36 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="section-padding bg-[color:var(--cdp-surface)]"
+      className="section-padding bg-[color:var(--surface-alt)]"
     >
       <div className="container-max">
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="faq-heading"
-            className="text-3xl font-semibold tracking-tight text-[color:var(--cdp-navy)] sm:text-4xl"
+            className="text-3xl font-semibold tracking-tight sm:text-4xl"
           >
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-4 text-lg text-[color:var(--text-muted)]">
             Common questions about the CDP Pilot Programme.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl divide-y divide-gray-200">
+        <div className="mx-auto mt-12 max-w-3xl divide-y divide-[color:var(--border)]">
           {faqs.map((faq, index) => (
             <div key={faq.question} className="py-5">
               <button
                 id={`faq-btn-${index}`}
                 onClick={() => toggle(index)}
-                className="flex w-full min-h-[44px] items-center justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cdp-navy)] focus-visible:ring-offset-2 rounded-lg px-2"
+                className="flex w-full min-h-[44px] items-center justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-alt)] rounded-lg px-2"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-panel-${index}`}
               >
-                <span className="text-base font-medium text-gray-900 sm:text-lg">
+                <span className="text-base font-medium text-[color:var(--text)] sm:text-lg">
                   {faq.question}
                 </span>
                 <svg
-                  className={`ml-4 h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-200 ${
+                  className={`ml-4 h-5 w-5 flex-shrink-0 text-[color:var(--text-muted)] transition-transform duration-200 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -101,7 +101,7 @@ export default function FAQ() {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="px-2 text-base leading-relaxed text-gray-600">
+                <p className="px-2 text-base leading-relaxed text-[color:var(--text-muted)]">
                   {faq.answer}
                 </p>
               </div>

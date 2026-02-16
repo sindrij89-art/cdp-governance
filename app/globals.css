@@ -4,15 +4,122 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap");
 
-:root {
-  --cdp-navy: #0A1E3F;
-  --cdp-navy-light: #0F2847;
-  --cdp-navy-muted: #1A3A5C;
-  --cdp-accent: #0A1E3F;
-  --cdp-accent-hover: #0F2847;
-  --cdp-border: #E2E8F0;
-  --cdp-surface: #F8FAFC;
-  --cdp-surface-alt: #F1F5F9;
+/* ------------------------------------------------------------------ */
+/*  Theme tokens — light is default, dark is opt-in                    */
+/* ------------------------------------------------------------------ */
+:root,
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --accent: #0C9976;
+  --accent-hover: #0AB488;
+  --accent-contrast: #ffffff;
+  --hero-bg: #0A1E3F;
+  --hero-gradient-start: #07152E;
+  --hero-gradient-mid: #0A1E3F;
+  --hero-gradient-end: #0A2C6D;
+  --hero-text: #ffffff;
+  --hero-text-muted: #94a3b8;
+  --hero-border: #1A3A5C;
+  --hero-badge-bg: rgba(255,255,255,0.05);
+  --nav-bg: #0A1E3F;
+  --nav-text: #94a3b8;
+  --nav-text-hover: #ffffff;
+  --nav-border: #1A3A5C;
+  --nav-mobile-bg: #0A1E3F;
+  --nav-mobile-hover: #0F2847;
+  --footer-bg: #0A1E3F;
+  --footer-text: #94a3b8;
+  --footer-text-faint: #64748b;
+  --footer-border: #1A3A5C;
+  --card-icon-bg: rgba(12,153,118,0.1);
+  --card-icon-bg-hover: rgba(12,153,118,0.2);
+  --card-hover-border: rgba(12,153,118,0.4);
+  --card-hover-shadow: rgba(12,153,118,0.05);
+  --heading-color: #0A1E3F;
+  --input-bg: #ffffff;
+  --input-text: #0f172a;
+  --input-placeholder: #94a3b8;
+  --input-border: #e2e8f0;
+  --ring-offset: #ffffff;
+  --error-text: #dc2626;
+  --error-border: #fecaca;
+  --error-bg: #fef2f2;
+  --success-icon-bg: #dcfce7;
+  --success-icon: #16a34a;
+  --success-heading: #14532d;
+  --success-text: #15803d;
+  --success-border: #bbf7d0;
+  --success-bg: #f0fdf4;
+  --why-text: #334155;
+  --inclusion-label: #1e293b;
+  --inclusion-desc: #64748b;
+  --stat-number: #0A1E3F;
+  --logo-display-white: none;
+  --logo-display-dark: block;
+}
+
+[data-theme="dark"] {
+  --bg: #0A1E3F;
+  --bg-alt: #0A1E3F;
+  --text: #CBD5E1;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+  --surface: #0F2847;
+  --surface-alt: #0F2847;
+  --border: #1A3A5C;
+  --accent: #0C9976;
+  --accent-hover: #0AB488;
+  --accent-contrast: #ffffff;
+  --hero-bg: #0A1E3F;
+  --hero-gradient-start: #07152E;
+  --hero-gradient-mid: #0A1E3F;
+  --hero-gradient-end: #0A2C6D;
+  --hero-text: #ffffff;
+  --hero-text-muted: #94a3b8;
+  --hero-border: #1A3A5C;
+  --hero-badge-bg: rgba(255,255,255,0.05);
+  --nav-bg: #0A1E3F;
+  --nav-text: #94a3b8;
+  --nav-text-hover: #ffffff;
+  --nav-border: #1A3A5C;
+  --nav-mobile-bg: #0A1E3F;
+  --nav-mobile-hover: #0F2847;
+  --footer-bg: #0A1E3F;
+  --footer-text: #94a3b8;
+  --footer-text-faint: #64748b;
+  --footer-border: #1A3A5C;
+  --card-icon-bg: rgba(12,153,118,0.1);
+  --card-icon-bg-hover: rgba(12,153,118,0.2);
+  --card-hover-border: rgba(12,153,118,0.4);
+  --card-hover-shadow: rgba(12,153,118,0.05);
+  --heading-color: #F1F5F9;
+  --input-bg: #0A1E3F;
+  --input-text: #F1F5F9;
+  --input-placeholder: #64748b;
+  --input-border: #1A3A5C;
+  --ring-offset: #0F2847;
+  --error-text: #f87171;
+  --error-border: rgba(239,68,68,0.3);
+  --error-bg: rgba(239,68,68,0.1);
+  --success-icon-bg: rgba(12,153,118,0.2);
+  --success-icon: #0C9976;
+  --success-heading: #F1F5F9;
+  --success-text: #CBD5E1;
+  --success-border: rgba(12,153,118,0.3);
+  --success-bg: #0F2847;
+  --why-text: #CBD5E1;
+  --inclusion-label: #e2e8f0;
+  --inclusion-desc: #94a3b8;
+  --stat-number: #ffffff;
+  --logo-display-white: block;
+  --logo-display-dark: none;
 }
 
 @layer base {
@@ -21,7 +128,9 @@
   }
 
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply antialiased;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", "Roboto", sans-serif;
   }
 
@@ -29,6 +138,7 @@
   h2,
   h3 {
     font-family: "Montserrat", system-ui, sans-serif;
+    color: var(--heading-color);
   }
 }
 
@@ -44,7 +154,11 @@
   /* Skip-to-content link: visually hidden, visible on focus */
   .skip-to-content {
     @apply absolute left-2 top-2 z-[100] -translate-y-full rounded-lg px-4 py-2 text-sm font-semibold transition-transform focus:translate-y-0;
-    background-color: var(--cdp-navy);
+    background-color: var(--accent);
     color: #fff;
   }
+
+  /* Logo visibility toggle */
+  .logo-white { display: var(--logo-display-white); }
+  .logo-dark { display: var(--logo-display-dark); }
 }

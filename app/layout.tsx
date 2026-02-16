@@ -38,13 +38,19 @@ export const metadata: Metadata = {
   },
 };
 
+/* Inline script to set theme before paint — prevents flash of wrong theme */
+const themeScript = `(function(){try{var t=localStorage.getItem('cdp_theme');if(t==='dark'){document.documentElement.dataset.theme='dark'}else{document.documentElement.dataset.theme='light'}}catch(e){}})()`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" data-theme="light">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );

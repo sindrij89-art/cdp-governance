@@ -112,13 +112,13 @@ export default function SignupForm() {
       <section
         id="apply"
         aria-labelledby="apply-heading"
-        className="section-padding bg-white"
+        className="section-padding bg-[color:var(--bg)]"
       >
         <div className="container-max">
-          <div className="mx-auto max-w-xl rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+          <div className="mx-auto max-w-xl rounded-2xl border border-[color:var(--success-border)] bg-[color:var(--success-bg)] p-8 text-center">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--success-icon-bg)]">
               <svg
-                className="h-6 w-6 text-emerald-600"
+                className="h-6 w-6 text-[color:var(--success-icon)]"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
@@ -132,10 +132,10 @@ export default function SignupForm() {
                 />
               </svg>
             </div>
-            <h3 id="apply-heading" className="text-xl font-semibold text-emerald-900">
+            <h3 id="apply-heading" className="text-xl font-semibold text-[color:var(--success-heading)]">
               Application Received
             </h3>
-            <p className="mt-2 text-emerald-700">
+            <p className="mt-2 text-[color:var(--success-text)]">
               Application received &mdash; we&apos;ll review within 48 hours.
             </p>
           </div>
@@ -145,26 +145,26 @@ export default function SignupForm() {
   }
 
   const inputBase =
-    "mt-1 block w-full rounded-lg border px-4 py-2.5 text-gray-900 shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cdp-navy)] focus-visible:ring-offset-2";
-  const inputNormal = `${inputBase} border-gray-300`;
+    "mt-1 block w-full rounded-lg border bg-[color:var(--input-bg)] px-4 py-2.5 text-[color:var(--input-text)] shadow-sm transition-colors placeholder:text-[color:var(--input-placeholder)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]";
+  const inputNormal = `${inputBase} border-[color:var(--input-border)]`;
   const inputError = `${inputBase} border-red-500`;
 
   return (
     <section
       id="apply"
       aria-labelledby="apply-heading"
-      className="section-padding bg-white"
+      className="section-padding bg-[color:var(--bg)]"
     >
       <div className="container-max">
         <div className="mx-auto max-w-xl">
           <div className="text-center">
             <h2
               id="apply-heading"
-              className="text-3xl font-semibold tracking-tight text-[color:var(--cdp-navy)] sm:text-4xl"
+              className="text-3xl font-semibold tracking-tight sm:text-4xl"
             >
               Apply for the CDP Pilot
             </h2>
-            <p className="mt-4 text-lg text-gray-500">
+            <p className="mt-4 text-lg text-[color:var(--text-muted)]">
               Tell us about your team and how CDP might support your sales
               governance goals.
             </p>
@@ -178,8 +178,8 @@ export default function SignupForm() {
           >
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Full Name <span className="text-red-500">*</span>
+              <label htmlFor="name" className="block text-sm font-medium text-[color:var(--text)]">
+                Full Name <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <input
                 type="text"
@@ -193,7 +193,7 @@ export default function SignupForm() {
                 aria-describedby={fieldErrors.name ? "name-error" : undefined}
               />
               {fieldErrors.name && (
-                <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="name-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
                   {fieldErrors.name}
                 </p>
               )}
@@ -201,8 +201,8 @@ export default function SignupForm() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Work Email <span className="text-red-500">*</span>
+              <label htmlFor="email" className="block text-sm font-medium text-[color:var(--text)]">
+                Work Email <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <input
                 type="email"
@@ -216,7 +216,7 @@ export default function SignupForm() {
                 aria-describedby={fieldErrors.email ? "email-error" : undefined}
               />
               {fieldErrors.email && (
-                <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="email-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
                   {fieldErrors.email}
                 </p>
               )}
@@ -224,8 +224,8 @@ export default function SignupForm() {
 
             {/* Company Size */}
             <div>
-              <label htmlFor="companySize" className="block text-sm font-medium text-gray-700">
-                Company Size <span className="text-red-500">*</span>
+              <label htmlFor="companySize" className="block text-sm font-medium text-[color:var(--text)]">
+                Company Size <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <select
                 id="companySize"
@@ -242,7 +242,7 @@ export default function SignupForm() {
                 <option value="51+">51+ employees</option>
               </select>
               {fieldErrors.companySize && (
-                <p id="companySize-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="companySize-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
                   {fieldErrors.companySize}
                 </p>
               )}
@@ -250,8 +250,8 @@ export default function SignupForm() {
 
             {/* Role */}
             <div>
-              <label htmlFor="role" className="block text-sm font-medium text-gray-700">
-                Your Role <span className="text-red-500">*</span>
+              <label htmlFor="role" className="block text-sm font-medium text-[color:var(--text)]">
+                Your Role <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <select
                 id="role"
@@ -268,7 +268,7 @@ export default function SignupForm() {
                 <option value="Other">Other</option>
               </select>
               {fieldErrors.role && (
-                <p id="role-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="role-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
                   {fieldErrors.role}
                 </p>
               )}
@@ -276,8 +276,8 @@ export default function SignupForm() {
 
             {/* Why CDP */}
             <div>
-              <label htmlFor="whyCdp" className="block text-sm font-medium text-gray-700">
-                Why CDP? <span className="text-red-500">*</span>
+              <label htmlFor="whyCdp" className="block text-sm font-medium text-[color:var(--text)]">
+                Why CDP? <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <textarea
                 id="whyCdp"
@@ -291,7 +291,7 @@ export default function SignupForm() {
                 aria-describedby={fieldErrors.why ? "why-error" : undefined}
               />
               {fieldErrors.why && (
-                <p id="why-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="why-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
                   {fieldErrors.why}
                 </p>
               )}
@@ -300,7 +300,7 @@ export default function SignupForm() {
             {/* Global error */}
             {status === "error" && errorMessage && !Object.keys(fieldErrors).length && (
               <div
-                className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700"
+                className="rounded-lg border border-[color:var(--error-border)] bg-[color:var(--error-bg)] p-3 text-sm text-[color:var(--error-text)]"
                 role="alert"
               >
                 {errorMessage}
@@ -311,7 +311,7 @@ export default function SignupForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="font-heading flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--cdp-navy)] px-6 py-3 text-base font-semibold text-white shadow-sm transition-all hover:bg-[color:var(--cdp-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cdp-navy)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+              className="font-heading flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--accent)] px-6 py-3 text-base font-semibold text-[color:var(--accent-contrast)] shadow-sm transition-all hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === "loading" ? (
                 <>
@@ -331,9 +331,9 @@ export default function SignupForm() {
               )}
             </button>
 
-            <p className="text-center text-xs text-gray-400">
+            <p className="text-center text-xs text-[color:var(--text-faint)]">
               By submitting, you agree to our{" "}
-              <a href="/privacy" className="underline text-gray-500 hover:text-[color:var(--cdp-navy)]">
+              <a href="/privacy" className="underline text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
                 Privacy Policy
               </a>
               .
