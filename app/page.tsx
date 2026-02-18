@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
 import WhyCdpExists from "@/components/WhyCdpExists";
+import TeamSection from "@/components/TeamSection";
 import PilotDetails from "@/components/PilotDetails";
 import SignupForm from "@/components/SignupForm";
 import FAQ from "@/components/FAQ";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <Benefits />
         <WhyCdpExists />
+        <TeamSection />
         <PilotDetails />
         <SignupForm />
         <FAQ />

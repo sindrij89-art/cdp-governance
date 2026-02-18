@@ -32,7 +32,7 @@ export default function WhyCdpExists() {
             achieved.
           </p>
           <p className="mt-6 text-base font-medium text-[color:var(--accent)]">
-            Sindri J&oacute;nsson — Founder
+            Sindri J&oacute;nsson — Principal, Revenue Operations
           </p>
         </div>
       </div>

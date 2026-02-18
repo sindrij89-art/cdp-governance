@@ -30,7 +30,7 @@ const benefits = [
     ),
   },
   {
-    title: "Audit-Ready",
+    title: "Audit-Friendly",
     description:
       "Traceable sessions with exportable CRM evidence trails.",
     icon: (

@@ -1,5 +1,12 @@
 "use client";
 
+const proofChips = [
+  "UK-only",
+  "30-day pilot",
+  "Non-renewing",
+  "Acceptance = D1\u2013D8 delivered",
+];
+
 export default function Hero() {
   function handleRequestPack(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
@@ -35,51 +42,171 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%)",
+          "linear-gradient(160deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 45%, var(--hero-gradient-end) 100%)",
       }}
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true">
+      {/* ── Visual system: 3 layers (all decorative) ── */}
+      <div className="absolute inset-0" aria-hidden="true">
+
+        {/* A) Vignette — darkens edges for depth */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 25%, rgba(255,255,255,0.3) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+            background:
+              "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 0%, rgba(5,10,25,0.4) 100%)",
+          }}
+        />
+
+        {/* B) Geometric overlay — governance grid + curved decision paths + nodes */}
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 1200 700"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Fine grid — horizontal */}
+          {[100, 200, 300, 400, 500, 600].map((y) => (
+            <line
+              key={`h-${y}`}
+              x1="0" y1={y} x2="1200" y2={y}
+              stroke="white" strokeWidth="0.3" opacity="0.05"
+            />
+          ))}
+          {/* Fine grid — vertical */}
+          {[150, 300, 450, 600, 750, 900, 1050].map((x) => (
+            <line
+              key={`v-${x}`}
+              x1={x} y1="0" x2={x} y2="700"
+              stroke="white" strokeWidth="0.3" opacity="0.05"
+            />
+          ))}
+
+          {/* Curved decision path — left to centre */}
+          <path
+            d="M-50,620 C200,580 350,400 600,310"
+            stroke="rgba(12,153,118,0.18)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          {/* Curved decision path — right to centre */}
+          <path
+            d="M1250,620 C1000,580 850,400 600,310"
+            stroke="rgba(12,153,118,0.18)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+
+          {/* Secondary subtle arcs */}
+          <path
+            d="M-30,520 C250,480 400,360 600,300"
+            stroke="white"
+            strokeWidth="0.5"
+            opacity="0.06"
+            strokeLinecap="round"
+          />
+          <path
+            d="M1230,520 C950,480 800,360 600,300"
+            stroke="white"
+            strokeWidth="0.5"
+            opacity="0.06"
+            strokeLinecap="round"
+          />
+
+          {/* Nodes along the paths */}
+          {[
+            [120, 590], [300, 510], [450, 400], [600, 310],
+            [750, 400], [900, 510], [1080, 590],
+          ].map(([cx, cy], i) => (
+            <circle
+              key={`node-${i}`}
+              cx={cx} cy={cy} r={i === 3 ? 3 : 1.8}
+              fill={i === 3 ? "rgba(12,153,118,0.35)" : "rgba(255,255,255,0.12)"}
+            />
+          ))}
+
+          {/* Centre convergence node — ring */}
+          <circle
+            cx="600" cy="310" r="8"
+            stroke="rgba(12,153,118,0.15)"
+            strokeWidth="1"
+            fill="none"
+          />
+        </svg>
+
+        {/* C) Soft glows */}
+        {/* Glow behind headline area */}
+        <div
+          className="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2"
+          style={{
+            width: "min(800px, 95vw)",
+            height: "min(500px, 60vw)",
+            background:
+              "radial-gradient(ellipse, rgba(12,153,118,0.07) 0%, rgba(12,153,118,0.02) 45%, transparent 70%)",
+          }}
+        />
+        {/* Cool glow — top left */}
+        <div
+          className="absolute -left-20 -top-20 h-80 w-80 rounded-full opacity-[0.08]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(10,44,109,0.9) 0%, transparent 70%)",
+          }}
+        />
+        {/* Warm glow — bottom right */}
+        <div
+          className="absolute -bottom-16 -right-16 h-72 w-72 rounded-full opacity-[0.06]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(12,153,118,0.7) 0%, transparent 70%)",
           }}
         />
       </div>
 
-      <div className="container-max section-padding relative">
+      {/* ── Content ── */}
+      <div className="container-max relative px-4 pb-16 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-28">
         <div className="mx-auto max-w-3xl text-center">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--hero-border)] bg-[color:var(--hero-badge-bg)] px-4 py-1.5 text-sm text-[color:var(--hero-text-muted)]">
-            <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+
+          {/* Status pill */}
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--hero-border)] bg-[color:var(--hero-badge-bg)] px-4 py-1.5 text-sm text-[color:var(--hero-text-muted)] backdrop-blur-sm">
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[color:var(--accent)]" />
             Now accepting pilot applications
           </div>
 
-          {/* Headline */}
+          {/* H1 — single strong headline */}
           <h1
             id="hero-heading"
-            className="text-4xl font-semibold leading-tight tracking-tight text-[color:var(--hero-text)] sm:text-5xl lg:text-6xl"
+            className="text-4xl font-semibold leading-[1.15] tracking-tight text-[color:var(--hero-text)] sm:text-5xl lg:text-6xl"
           >
-            Decision Clarity for Sales Teams
-            <span className="mt-2 block text-[color:var(--hero-text-muted)]">
-              Join the CDP Pilot
-            </span>
+            Decision Clarity for{" "}
+            <br className="hidden sm:inline" />
+            Sales Teams
           </h1>
 
-          {/* Subheadline */}
+          {/* Subhead */}
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
-            A governance layer designed to support clear Yes / No / Still Open
-            outcomes, evidence tracking, and disciplined follow-ups.
+            A governance layer designed to support clear
+            Yes&nbsp;/&nbsp;No&nbsp;/&nbsp;Still&nbsp;Open outcomes, evidence
+            tracking, and disciplined follow-ups.
           </p>
 
-          {/* CTA */}
+          {/* Micro-proof chips */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+            {proofChips.map((chip) => (
+              <span
+                key={chip}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1 text-xs font-medium tracking-wide text-[color:var(--hero-text-muted)] backdrop-blur-sm"
+              >
+                {chip}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA block */}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="#apply"
-              className="font-heading inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[color:var(--accent)] px-8 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
+              className="font-heading inline-flex min-h-[48px] items-center gap-2.5 rounded-lg bg-[color:var(--accent)] px-9 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg shadow-[rgba(12,153,118,0.25)] transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl hover:shadow-[rgba(12,153,118,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
             >
               Apply for Pilot
               <svg
@@ -100,11 +227,17 @@ export default function Hero() {
             <a
               href="#apply"
               onClick={handleRequestPack}
-              className="font-heading inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-[color:var(--hero-border)] px-8 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] transition-colors hover:border-white/40 hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
+              className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-white/15 px-9 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] ring-1 ring-inset ring-white/[0.06] transition-all hover:border-white/30 hover:bg-white/[0.04] hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
             >
               Request Pilot Pack (PDF)
             </a>
           </div>
+
+          {/* Footnote */}
+          <p className="mx-auto mt-6 max-w-md text-xs leading-relaxed text-white/30">
+            Deliverables-based pilot. Measurement supported; outcomes not
+            guaranteed.
+          </p>
         </div>
       </div>
     </section>
