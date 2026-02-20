@@ -1,5 +1,3 @@
-"use client";
-
 const proofChips = [
   "UK-only",
   "30-day pilot",
@@ -8,34 +6,6 @@ const proofChips = [
 ];
 
 export default function Hero() {
-  function handleRequestPack(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    const applySection = document.getElementById("apply");
-    if (!applySection) return;
-
-    applySection.scrollIntoView({ behavior: "smooth" });
-
-    setTimeout(() => {
-      const textarea = document.getElementById("whyCdp") as HTMLTextAreaElement | null;
-      if (textarea) {
-        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-          window.HTMLTextAreaElement.prototype,
-          "value"
-        )?.set;
-        if (nativeInputValueSetter) {
-          nativeInputValueSetter.call(
-            textarea,
-            "Requesting Pilot Pack for internal review."
-          );
-          textarea.dispatchEvent(new Event("input", { bubbles: true }));
-        } else {
-          textarea.value = "Requesting Pilot Pack for internal review.";
-        }
-        textarea.focus();
-      }
-    }, 100);
-  }
-
   return (
     <section
       aria-labelledby="hero-heading"
@@ -205,10 +175,10 @@ export default function Hero() {
           {/* CTA block */}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="#apply"
+              href="https://app.cdp-governance.com/login"
               className="font-heading inline-flex min-h-[48px] items-center gap-2.5 rounded-lg bg-[color:var(--accent)] px-9 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg shadow-[rgba(12,153,118,0.25)] transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl hover:shadow-[rgba(12,153,118,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
             >
-              Apply for Pilot
+              Open the App
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -225,16 +195,19 @@ export default function Hero() {
               </svg>
             </a>
             <a
-              href="#apply"
-              onClick={handleRequestPack}
+              href="https://app.cdp-governance.com/install"
               className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-white/15 px-9 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] ring-1 ring-inset ring-white/[0.06] transition-all hover:border-white/30 hover:bg-white/[0.04] hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
             >
-              Request Pilot Pack (PDF)
+              Install on your phone
             </a>
           </div>
 
+          <p className="mx-auto mt-4 max-w-lg text-sm text-white/50">
+            Operators can use the web app, or optionally install it to their home screen.
+          </p>
+
           {/* Footnote */}
-          <p className="mx-auto mt-6 max-w-md text-xs leading-relaxed text-white/30">
+          <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-white/30">
             Deliverables-based pilot. Measurement supported; outcomes not
             guaranteed.
           </p>

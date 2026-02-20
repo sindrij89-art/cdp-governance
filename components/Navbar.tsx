@@ -83,7 +83,7 @@ export default function Navbar() {
             href="#apply"
             className="font-heading rounded-lg bg-[color:var(--accent)] px-5 py-2.5 text-sm font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--nav-bg)]"
           >
-            Apply for Pilot
+            Apply for the Pilot
           </a>
         </nav>
 
@@ -158,7 +158,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-[color:var(--accent)] px-4 py-2.5 text-center text-sm font-semibold text-[color:var(--accent-contrast)] hover:bg-[color:var(--accent-hover)]"
             >
-              Apply for Pilot
+              Apply for the Pilot
             </a>
           </div>
         </nav>
