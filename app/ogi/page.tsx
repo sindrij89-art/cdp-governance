@@ -106,7 +106,7 @@ export default function OgiPage() {
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
                 A fixed-scope advisory review and correction of live outbound sales materials for regulated UK sales teams. One team. One primary outbound motion. One review round. 7&ndash;14 calendar days.
               </p>
-              <p className="mx-auto mt-6 max-w-2xl text-sm font-medium tracking-wide text-[color:var(--hero-text-muted)]">
+              <p className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)]/20 bg-[color:var(--accent)]/[0.08] px-5 py-2 text-sm font-medium tracking-wide text-[color:var(--accent)]">
                 Fixed scope &middot; 7&ndash;14 days &middot; Up to 10 assets &middot; &pound;5,000 + VAT
               </p>
             </div>
@@ -191,7 +191,7 @@ export default function OgiPage() {
               <h2 id="ogi-process-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 How It Works
               </h2>
-              <ol className="mt-8 space-y-4">
+              <ol className="mt-8 list-none space-y-4 pl-0">
                 {steps.map((step, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--card-icon-bg)] text-sm font-semibold text-[color:var(--accent)]">
