@@ -2,20 +2,30 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const links = [
-  { label: "Benefits", href: "#benefits" },
-  { label: "Pilot Details", href: "#details" },
-  { label: "FAQ", href: "#faq" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const stored = document.documentElement.dataset.theme as "light" | "dark" | undefined;
     setTheme(stored || "light");
+  }, []);
+
+  useEffect(() => {
+    function handleScroll() {
+      // Switch logo when scrolled past the hero section
+      const hero = document.querySelector("[aria-labelledby*='hero']");
+      const threshold = hero ? hero.getBoundingClientRect().bottom + window.scrollY - 64 : 500;
+      setScrolled(window.scrollY > threshold);
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   function toggleTheme() {
@@ -25,17 +35,52 @@ export default function Navbar() {
     setTheme(next);
   }
 
+  function handleContactClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    setMobileOpen(false);
+
+    if (pathname === "/ogi") {
+      document.getElementById("ogi-form")?.scrollIntoView({ behavior: "smooth" });
+    } else if (pathname === "/cdp") {
+      document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      document.getElementById("which-engagement")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  // In dark theme mode, navbar is always dark style regardless of scroll
+  const isDarkNav = theme === "dark" || !scrolled;
+
+  const navBg = isDarkNav
+    ? "transparent"
+    : "rgba(255, 255, 255, 0.92)";
+  const navBorder = isDarkNav
+    ? "#1A3A5C"
+    : "rgba(226, 232, 240, 0.8)";
+  const textColor = isDarkNav ? "#94a3b8" : "#64748b";
+  const textHover = isDarkNav ? "#ffffff" : "#0f172a";
+  const toggleBorder = isDarkNav ? "rgba(26, 58, 92, 1)" : "rgba(226, 232, 240, 1)";
+  const mobileToggleColor = isDarkNav ? "#94a3b8" : "#64748b";
+  const mobileHoverBg = isDarkNav ? "#0F2847" : "#f1f5f9";
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--nav-border)] bg-[color:var(--nav-bg)]/95 backdrop-blur-sm">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-colors duration-300"
+      style={{
+        backgroundColor: navBg,
+        borderBottom: `1px solid ${navBorder}`,
+      }}
+    >
       <div className="container-max flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3" aria-label="CDP Governance home">
+        {/* Logo — switches based on scroll position */}
+        <Link href="/" className="flex items-center gap-3" aria-label="CDP Governance home">
           <Image
             src="/logo-cdp-white.png"
             alt="CDP logo"
             width={160}
             height={40}
-            className="logo-white h-10 w-auto"
+            className="h-10 w-auto"
+            style={{ display: isDarkNav ? "block" : "none" }}
             priority
           />
           <Image
@@ -43,27 +88,47 @@ export default function Navbar() {
             alt="CDP logo"
             width={160}
             height={40}
-            className="logo-dark h-10 w-auto"
+            className="h-10 w-auto"
+            style={{ display: isDarkNav ? "none" : "block" }}
             priority
           />
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-[color:var(--nav-text)] transition-colors hover:text-[color:var(--nav-text-hover)]"
-            >
-              {link.label}
-            </a>
-          ))}
+          <Link
+            href="/ogi"
+            className="text-sm font-medium transition-colors"
+            style={{
+              color: pathname === "/ogi" ? textHover : textColor,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = textHover; }}
+            onMouseLeave={(e) => { if (pathname !== "/ogi") e.currentTarget.style.color = textColor; }}
+          >
+            OGI
+          </Link>
+          <Link
+            href="/cdp"
+            className="text-sm font-medium transition-colors"
+            style={{
+              color: pathname === "/cdp" ? textHover : textColor,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = textHover; }}
+            onMouseLeave={(e) => { if (pathname !== "/cdp") e.currentTarget.style.color = textColor; }}
+          >
+            CDP Pilot
+          </Link>
 
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-1.5 rounded-lg border border-[color:var(--nav-border)] px-3 py-1.5 text-xs font-medium text-[color:var(--nav-text)] transition-colors hover:text-[color:var(--nav-text-hover)]"
+            className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors"
+            style={{
+              color: textColor,
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: toggleBorder,
+            }}
             aria-label="Theme"
             aria-pressed={theme === "dark"}
           >
@@ -80,17 +145,19 @@ export default function Navbar() {
           </button>
 
           <a
-            href="#apply"
-            className="font-heading rounded-lg bg-[color:var(--accent)] px-5 py-2.5 text-sm font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--nav-bg)]"
+            href="#contact"
+            onClick={handleContactClick}
+            className="font-heading rounded-lg bg-[color:var(--accent)] px-5 py-2.5 text-sm font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
           >
-            Apply for the Pilot
+            Contact &rarr;
           </a>
         </nav>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-lg p-2 text-[color:var(--nav-text)] hover:bg-[color:var(--nav-mobile-hover)] md:hidden"
+          className="rounded-lg p-2 md:hidden transition-colors"
+          style={{ color: mobileToggleColor }}
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
         >
@@ -122,23 +189,40 @@ export default function Navbar() {
       {mobileOpen && (
         <nav
           aria-label="Mobile"
-          className="border-t border-[color:var(--nav-border)] bg-[color:var(--nav-mobile-bg)] px-4 py-4 md:hidden"
+          className="px-4 py-4 md:hidden transition-colors duration-300"
+          style={{
+            backgroundColor: isDarkNav ? "#0A1E3F" : "#ffffff",
+            borderTop: `1px solid ${navBorder}`,
+          }}
         >
           <div className="flex flex-col gap-3">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-[color:var(--nav-text)] hover:bg-[color:var(--nav-mobile-hover)] hover:text-[color:var(--nav-text-hover)]"
-              >
-                {link.label}
-              </a>
-            ))}
+            <Link
+              href="/ogi"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2 text-sm font-medium"
+              style={{
+                color: pathname === "/ogi" ? textHover : textColor,
+                backgroundColor: pathname === "/ogi" ? mobileHoverBg : "transparent",
+              }}
+            >
+              OGI
+            </Link>
+            <Link
+              href="/cdp"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2 text-sm font-medium"
+              style={{
+                color: pathname === "/cdp" ? textHover : textColor,
+                backgroundColor: pathname === "/cdp" ? mobileHoverBg : "transparent",
+              }}
+            >
+              CDP Pilot
+            </Link>
             {/* Mobile theme toggle */}
             <button
               onClick={toggleTheme}
-              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-[color:var(--nav-text)] hover:bg-[color:var(--nav-mobile-hover)] hover:text-[color:var(--nav-text-hover)]"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium"
+              style={{ color: textColor }}
               aria-label="Theme"
               aria-pressed={theme === "dark"}
             >
@@ -154,11 +238,11 @@ export default function Navbar() {
               {theme === "light" ? "Dark Mode" : "Light Mode"}
             </button>
             <a
-              href="#apply"
-              onClick={() => setMobileOpen(false)}
+              href="#contact"
+              onClick={handleContactClick}
               className="mt-2 rounded-lg bg-[color:var(--accent)] px-4 py-2.5 text-center text-sm font-semibold text-[color:var(--accent-contrast)] hover:bg-[color:var(--accent-hover)]"
             >
-              Apply for the Pilot
+              Contact &rarr;
             </a>
           </div>
         </nav>

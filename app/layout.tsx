@@ -2,22 +2,26 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CDP — Decision Clarity for Sales Teams",
+  title: {
+    default: "CDP Governance — Sales Governance for Regulated UK Teams",
+    template: "%s",
+  },
   description:
-    "CDP is a 30-day sales governance pilot for UK teams. Rules, CRM fields, manager routines, and measurement. Designed to support documented decisions — measured, not guaranteed.",
+    "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance. Delivered, measured, and handed over.",
   keywords: [
-    "CDP governance pilot",
-    "ethical sales decision protocol",
     "sales governance",
-    "decision clarity",
-    "sales process governance",
-    "evidence-based sales",
+    "outbound governance",
+    "decision governance",
+    "regulated sales teams",
+    "UK sales governance",
+    "message risk review",
+    "pipeline governance",
   ],
   authors: [{ name: "CDP Governance" }],
   openGraph: {
-    title: "CDP — Decision Clarity for Sales Teams",
+    title: "CDP Governance — Sales Governance for Regulated UK Teams",
     description:
-      "30-day governance pilot for UK sales teams. Measured, not guaranteed.",
+      "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance.",
     url: "https://cdp-governance.com",
     siteName: "CDP Governance",
     type: "website",
@@ -25,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CDP — Decision Clarity for Sales Teams",
+    title: "CDP Governance — Sales Governance for Regulated UK Teams",
     description:
-      "30-day governance pilot for UK sales teams. Measured, not guaranteed.",
+      "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance.",
   },
   robots: {
     index: true,
