@@ -165,12 +165,12 @@ export default function CdpPage() {
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
                 A 30-day governance overlay for one regulated UK sales team. CRM decision fields, operator training, manager oversight, and measurement &mdash; installed and handed over.
               </p>
-              <p className="mx-auto mt-6 max-w-2xl text-sm font-medium tracking-wide text-[color:var(--hero-text-muted)]">
+              <p className="mx-auto mt-6 text-sm font-semibold tracking-wide text-[color:var(--accent)]">
                 UK only &middot; Non-renewing &middot; Compatibility check required &middot; Deliverables-based acceptance
               </p>
 
               {/* Primary CTA — pilot fit check */}
-              <div className="mt-10">
+              <div className="mt-8">
                 <a
                   href="#apply"
                   className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-[color:var(--accent)] px-9 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg shadow-[rgba(12,153,118,0.25)] transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl hover:shadow-[rgba(12,153,118,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
@@ -180,7 +180,7 @@ export default function CdpPage() {
               </div>
 
               {/* App link — secondary, demoted */}
-              <p className="mx-auto mt-6 max-w-lg text-sm text-white/40">
+              <p className="mx-auto mt-4 max-w-lg text-xs text-white/35">
                 Active pilot participants can access the{" "}
                 <a href="https://app.cdp-governance.com/login" className="underline hover:text-white/60 transition-colors">
                   delivery app

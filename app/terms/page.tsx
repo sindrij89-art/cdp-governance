@@ -19,13 +19,14 @@ export default function TermsPage() {
       </a>
       <Navbar />
       <main id="main-content">
-        <section className="section-padding bg-[color:var(--bg)]">
+        <section className="px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8 lg:pb-24 lg:pt-20 bg-[color:var(--bg)]">
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+              <p className="text-sm font-medium uppercase tracking-wider text-[color:var(--accent)]">Legal</p>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
                 Terms of Service
               </h1>
-              <p className="mt-4 text-sm text-[color:var(--text-muted)]">
+              <p className="mt-3 text-sm text-[color:var(--text-muted)]">
                 Last updated: March 2026
               </p>
 

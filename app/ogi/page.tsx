@@ -106,7 +106,7 @@ export default function OgiPage() {
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
                 A fixed-scope advisory review and correction of live outbound sales materials for regulated UK sales teams. One team. One primary outbound motion. One review round. 7&ndash;14 calendar days.
               </p>
-              <p className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)]/20 bg-[color:var(--accent)]/[0.08] px-5 py-2 text-sm font-medium tracking-wide text-[color:var(--accent)]">
+              <p className="mx-auto mt-6 text-sm font-semibold tracking-wide text-[color:var(--accent)]">
                 Fixed scope &middot; 7&ndash;14 days &middot; Up to 10 assets &middot; &pound;5,000 + VAT
               </p>
             </div>
@@ -191,18 +191,18 @@ export default function OgiPage() {
               <h2 id="ogi-process-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 How It Works
               </h2>
-              <ol className="mt-8 list-none space-y-4 pl-0">
+              <div className="mt-8 space-y-5">
                 {steps.map((step, i) => (
-                  <li key={i} className="flex items-start gap-4">
+                  <div key={i} className="flex items-start gap-4">
                     <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--card-icon-bg)] text-sm font-semibold text-[color:var(--accent)]">
                       {i + 1}
                     </span>
                     <p className="pt-1 text-base leading-relaxed text-[color:var(--why-text)]">
                       {step}
                     </p>
-                  </li>
+                  </div>
                 ))}
-              </ol>
+              </div>
             </div>
           </div>
         </section>
@@ -217,7 +217,7 @@ export default function OgiPage() {
               <h2 id="ogi-deliverables-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 What You Receive
               </h2>
-              <div className="mt-8 space-y-6">
+              <div className="mt-8 space-y-4">
                 {deliverables.map((d) => (
                   <div key={d.code} className="flex gap-4 rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5">
                     <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[color:var(--card-icon-bg)] text-sm font-bold text-[color:var(--accent)]">
@@ -230,23 +230,6 @@ export default function OgiPage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Not Included ── */}
-        <section
-          aria-labelledby="ogi-exclusions-heading"
-          className="section-padding bg-[color:var(--bg)]"
-        >
-          <div className="container-max">
-            <div className="mx-auto max-w-3xl">
-              <h2 id="ogi-exclusions-heading" className="text-2xl font-semibold">
-                Not Included
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-[color:var(--text-muted)]">
-                CRM installation &middot; Pipeline analysis &middot; Training &middot; Coaching &middot; Legal, regulatory, or compliance advice &middot; Ongoing advisory &middot; Post-handover corrections
-              </p>
             </div>
           </div>
         </section>
@@ -280,10 +263,27 @@ export default function OgiPage() {
           </div>
         </section>
 
+        {/* ── Not Included ── */}
+        <section
+          aria-labelledby="ogi-exclusions-heading"
+          className="section-padding bg-[color:var(--surface-alt)]"
+        >
+          <div className="container-max">
+            <div className="mx-auto max-w-3xl">
+              <h2 id="ogi-exclusions-heading" className="text-2xl font-semibold">
+                Not Included
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-[color:var(--text-muted)]">
+                CRM installation &middot; Pipeline analysis &middot; Training &middot; Coaching &middot; Legal, regulatory, or compliance advice &middot; Ongoing advisory &middot; Post-handover corrections
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── Commercial Terms ── */}
         <section
           aria-labelledby="ogi-terms-heading"
-          className="section-padding bg-[color:var(--surface-alt)]"
+          className="section-padding bg-[color:var(--bg)]"
         >
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
