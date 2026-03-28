@@ -104,7 +104,7 @@ export default function OgiPage() {
                 Outbound Governance Install
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
-                A fixed-scope review and correction of your outbound sales materials. One team. One outbound motion. One review round. Done in 14 days.
+                A fixed-scope advisory review and correction of live outbound sales materials for regulated UK sales teams. One team. One primary outbound motion. One review round. 7&ndash;14 calendar days.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-sm font-medium tracking-wide text-[color:var(--hero-text-muted)]">
                 Fixed scope &middot; 7&ndash;14 days &middot; Up to 10 assets &middot; &pound;5,000 + VAT
@@ -247,6 +247,35 @@ export default function OgiPage() {
               <p className="mt-4 text-base leading-relaxed text-[color:var(--text-muted)]">
                 CRM installation &middot; Pipeline analysis &middot; Training &middot; Coaching &middot; Legal, regulatory, or compliance advice &middot; Ongoing advisory &middot; Post-handover corrections
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── What Changes ── */}
+        <section
+          aria-labelledby="ogi-proof-heading"
+          className="section-padding bg-[color:var(--surface-alt)]"
+        >
+          <div className="container-max">
+            <div className="mx-auto max-w-3xl">
+              <h2 id="ogi-proof-heading" className="text-2xl font-semibold">
+                What Changes After the Install
+              </h2>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Risky language removed or flagged across live assets",
+                  "Manager gets a documented pre-send standard",
+                  "Assets stop drifting between team members",
+                  "Future sends have a documented review gate",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base leading-relaxed text-[color:var(--why-text)]">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-[color:var(--accent)]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

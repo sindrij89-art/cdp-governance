@@ -303,6 +303,10 @@ export default function OgiForm() {
             </button>
 
             <p className="text-center text-xs text-[color:var(--text-faint)]">
+              We review submissions manually and reply if the engagement appears in scope.
+            </p>
+
+            <p className="text-center text-xs text-[color:var(--text-faint)]">
               By submitting, you agree to our{" "}
               <a href="/privacy" className="underline text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
                 Privacy Policy

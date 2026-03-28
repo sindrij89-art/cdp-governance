@@ -4,11 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "CDP Governance — Sales Governance for Regulated UK Teams",
+  title: "CDP Governance — Governance for Regulated UK Sales Teams",
   description:
-    "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance. Delivered, measured, and handed over.",
+    "Two fixed-scope engagements: outbound message governance and pipeline decision governance for regulated UK sales teams. Delivered with clear scope, defined handover, and measured reporting.",
   openGraph: {
-    title: "CDP Governance — Sales Governance for Regulated UK Teams",
+    title: "CDP Governance — Governance for Regulated UK Sales Teams",
     description:
       "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance.",
     url: "https://cdp-governance.com",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CDP Governance — Sales Governance for Regulated UK Teams",
+    title: "CDP Governance — Governance for Regulated UK Sales Teams",
     description:
       "Two fixed-scope engagements for regulated UK sales teams. Outbound message governance and pipeline decision governance.",
   },
@@ -95,12 +95,12 @@ export default function Home() {
                 id="hero-heading"
                 className="text-4xl font-semibold leading-[1.15] tracking-tight text-[color:var(--hero-text)] sm:text-5xl lg:text-6xl"
               >
-                Sales Governance for{" "}
+                Governance for{" "}
                 <br className="hidden sm:inline" />
-                Regulated UK Teams
+                Regulated UK Sales Teams
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
-                Two fixed-scope engagements. Outbound message governance. Pipeline decision governance. Delivered, measured, and handed over.
+                Two fixed-scope engagements: one for outbound message control, one for pipeline decision discipline. Delivered with clear scope, defined handover, and measured reporting.
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link
@@ -113,7 +113,7 @@ export default function Home() {
                   href="/cdp"
                   className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-white/15 px-9 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] ring-1 ring-inset ring-white/[0.06] transition-all hover:border-white/30 hover:bg-white/[0.04] hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
                 >
-                  CDP Pilot &rarr;
+                  CDP 30-Day Pilot &rarr;
                 </Link>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function Home() {
                   Controls what your team says to the market
                 </p>
                 <p className="mt-4 text-sm font-medium text-[color:var(--accent)]">
-                  Fixed scope &middot; 7&ndash;14 days &middot; Up to 10 assets &middot; &pound;5,000 + VAT
+                  7&ndash;14 days &middot; Fixed scope &middot; Up to 10 assets &middot; UK only
                 </p>
                 <ul className="mt-6 space-y-2">
                   {[
@@ -157,18 +157,18 @@ export default function Home() {
                   href="/ogi"
                   className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--accent)] transition-colors hover:text-[color:var(--accent-hover)]"
                 >
-                  Learn more &rarr;
+                  Request fit review &rarr;
                 </Link>
               </div>
 
               {/* Card 2 — CDP */}
               <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8">
-                <h3 className="text-2xl font-semibold">Clear Decision Protocol Pilot</h3>
+                <h3 className="text-2xl font-semibold">CDP 30-Day Pilot</h3>
                 <p className="mt-2 text-base text-[color:var(--text-muted)]">
                   Controls how your team makes and records pipeline decisions
                 </p>
                 <p className="mt-4 text-sm font-medium text-[color:var(--accent)]">
-                  30 days &middot; 5&ndash;10 operators &middot; 16 training sessions &middot; D1&ndash;D8
+                  30 days &middot; 5&ndash;10 operators &middot; 16 sessions &middot; UK only
                 </p>
                 <ul className="mt-6 space-y-2">
                   {[
@@ -189,7 +189,7 @@ export default function Home() {
                   href="/cdp"
                   className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--accent)] transition-colors hover:text-[color:var(--accent-hover)]"
                 >
-                  Learn more &rarr;
+                  Explore the pilot &rarr;
                 </Link>
               </div>
             </div>
@@ -225,11 +225,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Which Engagement ── */}
+        <section
+          id="which-engagement"
+          aria-labelledby="which-heading"
+          className="section-padding bg-[color:var(--bg)]"
+        >
+          <div className="container-max">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 id="which-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                Which Engagement Is Right?
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--why-text)]">
+                The Outbound Install governs what your team says. The CDP Pilot governs how pipeline decisions are made and recorded. Most teams start with outbound. Some need both.
+              </p>
+              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <Link
+                  href="/ogi"
+                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-[color:var(--accent)] px-8 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
+                >
+                  Start with Outbound &rarr;
+                </Link>
+                <Link
+                  href="/cdp"
+                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-[color:var(--border)] px-8 py-3.5 text-base font-medium text-[color:var(--text)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
+                >
+                  Explore the CDP Pilot &rarr;
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── Who Delivers ── */}
         <section
           id="team"
           aria-labelledby="team-heading"
-          className="section-padding bg-[color:var(--bg)]"
+          className="section-padding bg-[color:var(--surface-alt)]"
         >
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
@@ -258,34 +290,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Which Engagement ── */}
-        <section
-          id="which-engagement"
-          aria-labelledby="which-heading"
-          className="section-padding bg-[color:var(--surface-alt)]"
-        >
+        {/* ── Contact ── */}
+        <section className="section-padding bg-[color:var(--bg)]">
           <div className="container-max">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 id="which-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                Which Engagement Is Right?
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--why-text)]">
-                The Outbound Install governs what your team says. The CDP Pilot governs how pipeline decisions are made and recorded. Most teams start with outbound. Some need both.
+              <p className="text-base text-[color:var(--text-muted)]">
+                <a
+                  href="mailto:contact@cdp-governance.com"
+                  className="font-medium text-[color:var(--accent)] transition-colors hover:text-[color:var(--accent-hover)]"
+                >
+                  contact@cdp-governance.com
+                </a>
               </p>
-              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <Link
-                  href="/ogi"
-                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-[color:var(--accent)] px-8 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
-                >
-                  Start with Outbound &rarr;
-                </Link>
-                <Link
-                  href="/cdp"
-                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-[color:var(--border)] px-8 py-3.5 text-base font-medium text-[color:var(--text)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
-                >
-                  Explore the CDP Pilot &rarr;
-                </Link>
-              </div>
             </div>
           </div>
         </section>

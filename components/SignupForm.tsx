@@ -65,7 +65,7 @@ export default function SignupForm() {
     }
     if (!form.companySize) errors.companySize = "Company size is required.";
     if (!form.role) errors.role = "Role is required.";
-    if (!form.whyCdp.trim()) errors.why = "Please tell us why you\u2019re interested.";
+    if (!form.whyCdp.trim()) errors.why = "Please tell us why this may be relevant.";
     return errors;
   }
 
@@ -133,10 +133,10 @@ export default function SignupForm() {
               </svg>
             </div>
             <h3 id="apply-heading" className="text-xl font-semibold text-[color:var(--success-heading)]">
-              Application Received
+              Submission Received
             </h3>
             <p className="mt-2 text-[color:var(--success-text)]">
-              Application received &mdash; we&apos;ll review within 48 hours.
+              We review fit, CRM compatibility, and delivery constraints before issuing next steps.
             </p>
           </div>
         </div>
@@ -162,11 +162,10 @@ export default function SignupForm() {
               id="apply-heading"
               className="text-3xl font-semibold tracking-tight sm:text-4xl"
             >
-              Apply for the CDP Pilot
+              Check Pilot Fit
             </h2>
             <p className="mt-4 text-lg text-[color:var(--text-muted)]">
-              Tell us about your team and how CDP might support your sales
-              governance goals.
+              Tell us about your team and how pipeline governance may be relevant.
             </p>
           </div>
 
@@ -174,7 +173,7 @@ export default function SignupForm() {
             onSubmit={handleSubmit}
             className="mt-10 space-y-6"
             noValidate
-            aria-label="Pilot application"
+            aria-label="Pilot fit check"
           >
             {/* Name */}
             <div>
@@ -274,10 +273,10 @@ export default function SignupForm() {
               )}
             </div>
 
-            {/* Why CDP */}
+            {/* Why this may be relevant */}
             <div>
               <label htmlFor="whyCdp" className="block text-sm font-medium text-[color:var(--text)]">
-                Why CDP? <span className="text-[color:var(--error-text)]">*</span>
+                Why this may be relevant <span className="text-[color:var(--error-text)]">*</span>
               </label>
               <textarea
                 id="whyCdp"
@@ -287,7 +286,7 @@ export default function SignupForm() {
                 value={form.whyCdp}
                 onChange={handleChange}
                 className={fieldErrors.why ? inputError : inputNormal}
-                placeholder="Tell us about your team&#39;s governance challenges and what you hope CDP can support..."
+                placeholder="Tell us about your team&#39;s governance challenges and what you hope the pilot can support..."
                 aria-describedby={fieldErrors.why ? "why-error" : undefined}
               />
               {fieldErrors.why && (
@@ -327,9 +326,13 @@ export default function SignupForm() {
                   Submitting&hellip;
                 </>
               ) : (
-                "Submit Application"
+                "Check pilot fit"
               )}
             </button>
+
+            <p className="text-center text-xs text-[color:var(--text-faint)]">
+              We review fit, CRM compatibility, and delivery constraints before issuing next steps.
+            </p>
 
             <p className="text-center text-xs text-[color:var(--text-faint)]">
               By submitting, you agree to our{" "}

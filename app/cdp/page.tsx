@@ -5,13 +5,13 @@ import SignupForm from "@/components/SignupForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Clear Decision Protocol Pilot — CDP Governance",
+  title: "CDP 30-Day Pilot — CDP Governance",
   description:
-    "A 30-day decision-governance overlay for one regulated UK sales team. CRM fields, operator training, manager oversight, and measurement — installed and handed over. £10,000.",
+    "A 30-day governance overlay for one regulated UK sales team. CRM decision fields, operator training, manager oversight, and measurement — installed and handed over.",
   openGraph: {
-    title: "Clear Decision Protocol Pilot — CDP Governance",
+    title: "CDP 30-Day Pilot — CDP Governance",
     description:
-      "A 30-day decision-governance overlay for one regulated UK sales team. CRM fields, operator training, manager oversight, and measurement.",
+      "A 30-day governance overlay for one regulated UK sales team. CRM decision fields, operator training, manager oversight, and measurement.",
     url: "https://cdp-governance.com/cdp",
     siteName: "CDP Governance",
     type: "website",
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 };
 
 const whatThisIs = [
-  "Five mandatory CRM decision fields, configured for your existing system",
-  "A 16-session operator training programme installing three behavioural disciplines",
+  "Five CRM governance fields configured for your existing system",
+  "A 16-session operator training programme",
   "A weekly manager oversight cadence: evidence audit, pipeline review, coaching",
   "A measurement framework tracking five defined metrics",
   "Eight defined deliverables (D1\u2013D8) transferred at completion",
@@ -34,40 +34,45 @@ const behaviours = [
   {
     title: "Honest Framing",
     description:
-      "Open every interaction by stating purpose, the decision being tested, and one possible misfit \u2014 before any pitch.",
+      "Open the interaction by stating purpose, the decision being tested, and one possible misfit.",
   },
   {
-    title: "Weakness Surfacing",
+    title: "Risk Disclosure",
     description:
-      "Name the real limitation before the buyer discovers it. Explain why it exists. Show how the downside is controlled.",
+      "State the relevant weakness or limitation before the buyer discovers it.",
   },
   {
-    title: "Binary Decision Capture",
+    title: "Decision Capture",
     description:
-      "End every qualified interaction with a clean choice between two futures. Yes, No, or Collapse. No \u2018let me know.\u2019",
+      "End qualified interactions with a documented next-state by deadline, rather than open-ended drift.",
   },
 ];
 
 const timeline = [
   {
     phase: "Week 0",
-    title: "Kickoff",
+    title: "Setup",
     description: "CRM fields installed, baseline export, schedules confirmed",
   },
   {
-    phase: "Weeks 1\u20132",
-    title: "Core behaviours + CRM integration",
-    description: "8 sessions",
+    phase: "Week 1",
+    title: "Core behaviours",
+    description: "Sessions on the three governance disciplines",
   },
   {
-    phase: "Weeks 2\u20133",
-    title: "Pressure testing + live pipeline reviews",
-    description: "4 sessions",
+    phase: "Week 2",
+    title: "CRM integration",
+    description: "Live pipeline integration and field adoption",
+  },
+  {
+    phase: "Week 3",
+    title: "Pressure testing",
+    description: "Live pipeline reviews and coaching",
   },
   {
     phase: "Week 4",
-    title: "Certification, measurement, playbook handoff",
-    description: "4 sessions",
+    title: "Certification and handoff",
+    description: "Measurement, scorecard, playbook handover",
   },
 ];
 
@@ -155,39 +160,32 @@ export default function CdpPage() {
                 id="cdp-hero-heading"
                 className="text-4xl font-semibold leading-[1.15] tracking-tight text-[color:var(--hero-text)] sm:text-5xl lg:text-6xl"
               >
-                Clear Decision Protocol Pilot
+                CDP 30-Day Pilot
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
-                A 30-day decision-governance overlay for one regulated UK sales team. CRM fields, operator training, manager oversight, and measurement &mdash; installed and handed over.
+                A 30-day governance overlay for one regulated UK sales team. CRM decision fields, operator training, manager oversight, and measurement &mdash; installed and handed over.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-sm font-medium tracking-wide text-[color:var(--hero-text-muted)]">
-                UK-only &middot; 30-day pilot &middot; Non-renewing &middot; Acceptance&nbsp;=&nbsp;D1&ndash;D8 delivered
+                UK only &middot; Non-renewing &middot; Compatibility check required &middot; Deliverables-based acceptance
               </p>
 
-              {/* App links — CDP only */}
-              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a
-                  href="https://app.cdp-governance.com/login"
-                  className="font-heading inline-flex min-h-[48px] items-center gap-2.5 rounded-lg bg-[color:var(--accent)] px-9 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg shadow-[rgba(12,153,118,0.25)] transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl hover:shadow-[rgba(12,153,118,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
-                >
-                  Open the App
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
+              {/* Primary CTA — pilot fit check */}
+              <div className="mt-10">
                 <a
                   href="#apply"
-                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-white/15 px-9 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] ring-1 ring-inset ring-white/[0.06] transition-all hover:border-white/30 hover:bg-white/[0.04] hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
+                  className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-[color:var(--accent)] px-9 py-3.5 text-base font-semibold text-[color:var(--accent-contrast)] shadow-lg shadow-[rgba(12,153,118,0.25)] transition-all hover:bg-[color:var(--accent-hover)] hover:shadow-xl hover:shadow-[rgba(12,153,118,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
                 >
-                  Apply for the Pilot
+                  Check pilot fit &rarr;
                 </a>
               </div>
 
-              <p className="mx-auto mt-4 max-w-lg text-sm text-white/50">
-                <a href="https://app.cdp-governance.com/install" className="underline hover:text-white/70 transition-colors">
-                  Install on your phone
-                </a>{" "}
-                &mdash; or use the web app directly.
+              {/* App link — secondary, demoted */}
+              <p className="mx-auto mt-6 max-w-lg text-sm text-white/40">
+                Active pilot participants can access the{" "}
+                <a href="https://app.cdp-governance.com/login" className="underline hover:text-white/60 transition-colors">
+                  delivery app
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -214,7 +212,7 @@ export default function CdpPage() {
                 ))}
               </ul>
               <p className="mt-6 text-sm font-medium text-[color:var(--text-muted)]">
-                Methodology-neutral. Your team continues using its existing sales methodology.
+                Methodology-neutral. The pilot does not change how your team sells.
               </p>
             </div>
           </div>
@@ -244,7 +242,7 @@ export default function CdpPage() {
                 ))}
               </div>
               <p className="mt-6 text-sm text-[color:var(--text-muted)]">
-                Compatible with Sandler, SPIN, MEDDIC, Challenger, or any installed methodology.
+                Compatible with any established sales methodology. The pilot does not change how your team sells.
               </p>
             </div>
           </div>
@@ -325,7 +323,19 @@ export default function CdpPage() {
                 ))}
               </ul>
               <p className="mt-4 text-sm font-medium text-[color:var(--text-muted)]">
-                All measured and reported. Measured, not guaranteed.
+                All measured and reported. None guaranteed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CRM Compatibility ── */}
+        <section className="section-padding bg-[color:var(--surface-alt)]">
+          <div className="container-max">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-2xl font-semibold">CRM Compatibility</h2>
+              <p className="mt-4 text-base leading-relaxed text-[color:var(--why-text)]">
+                A 15-minute compatibility check is required before the SOW is issued. Any CRM that supports custom fields and data export is supported.
               </p>
             </div>
           </div>
@@ -334,7 +344,7 @@ export default function CdpPage() {
         {/* ── Who Delivers ── */}
         <section
           aria-labelledby="cdp-team-heading"
-          className="section-padding bg-[color:var(--surface-alt)]"
+          className="section-padding bg-[color:var(--bg)]"
         >
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
@@ -366,7 +376,7 @@ export default function CdpPage() {
         {/* ── Pilot Details + Commercial Terms ── */}
         <section
           aria-labelledby="cdp-pilot-heading"
-          className="section-padding bg-[color:var(--bg)]"
+          className="section-padding bg-[color:var(--surface-alt)]"
         >
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
@@ -410,7 +420,7 @@ export default function CdpPage() {
           <div className="container-max">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-lg leading-relaxed text-[color:var(--why-text)]">
-                Haven&apos;t reviewed your outbound yet? The Outbound Governance Install is a 14-day fixed-scope review &mdash; a natural first step before pipeline governance.
+                Haven&apos;t reviewed your outbound yet? The Outbound Governance Install is the fixed-scope first step for teams that need message control before pipeline governance.
               </p>
               <Link
                 href="/ogi"

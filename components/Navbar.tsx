@@ -52,18 +52,7 @@ export default function Navbar() {
     setTheme(next);
   }
 
-  function handleContactClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    setMobileOpen(false);
-
-    if (pathname === "/ogi") {
-      document.getElementById("ogi-form")?.scrollIntoView({ behavior: "smooth" });
-    } else if (pathname === "/cdp") {
-      document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      document.getElementById("which-engagement")?.scrollIntoView({ behavior: "smooth" });
-    }
-  }
+  // Contact is now a simple mailto — no scroll logic needed
 
   // In dark theme, always use dark nav styling
   // In light theme: top = white bg showing through, hero = dark gradient behind, scrolled = frosted white
@@ -134,7 +123,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = textHover; }}
             onMouseLeave={(e) => { if (pathname !== "/ogi") e.currentTarget.style.color = textColor; }}
           >
-            OGI
+            Outbound Governance Install
           </Link>
           <Link
             href="/cdp"
@@ -145,7 +134,18 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = textHover; }}
             onMouseLeave={(e) => { if (pathname !== "/cdp") e.currentTarget.style.color = textColor; }}
           >
-            CDP Pilot
+            CDP 30-Day Pilot
+          </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium transition-colors"
+            style={{
+              color: pathname === "/about" ? textHover : textColor,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = textHover; }}
+            onMouseLeave={(e) => { if (pathname !== "/about") e.currentTarget.style.color = textColor; }}
+          >
+            About
           </Link>
 
           {/* Theme toggle */}
@@ -174,11 +174,10 @@ export default function Navbar() {
           </button>
 
           <a
-            href="#contact"
-            onClick={handleContactClick}
+            href="mailto:contact@cdp-governance.com"
             className="font-heading rounded-lg bg-[color:var(--accent)] px-5 py-2.5 text-sm font-semibold text-[color:var(--accent-contrast)] transition-colors hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
           >
-            Contact &rarr;
+            Contact
           </a>
         </nav>
 
@@ -226,7 +225,7 @@ export default function Navbar() {
                 backgroundColor: pathname === "/ogi" ? mobileHoverBg : "transparent",
               }}
             >
-              OGI
+              Outbound Governance Install
             </Link>
             <Link
               href="/cdp"
@@ -237,7 +236,18 @@ export default function Navbar() {
                 backgroundColor: pathname === "/cdp" ? mobileHoverBg : "transparent",
               }}
             >
-              CDP Pilot
+              CDP 30-Day Pilot
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2 text-sm font-medium"
+              style={{
+                color: pathname === "/about" ? textHover : textColor,
+                backgroundColor: pathname === "/about" ? mobileHoverBg : "transparent",
+              }}
+            >
+              About
             </Link>
             <button
               onClick={toggleTheme}
@@ -258,11 +268,11 @@ export default function Navbar() {
               {theme === "light" ? "Dark Mode" : "Light Mode"}
             </button>
             <a
-              href="#contact"
-              onClick={handleContactClick}
+              href="mailto:contact@cdp-governance.com"
+              onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-[color:var(--accent)] px-4 py-2.5 text-center text-sm font-semibold text-[color:var(--accent-contrast)] hover:bg-[color:var(--accent-hover)]"
             >
-              Contact &rarr;
+              Contact
             </a>
           </div>
         </nav>
