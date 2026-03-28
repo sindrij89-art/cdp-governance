@@ -254,7 +254,7 @@ export default function OgiPage() {
         {/* ── What Changes ── */}
         <section
           aria-labelledby="ogi-proof-heading"
-          className="section-padding bg-[color:var(--surface-alt)]"
+          className="section-padding bg-[color:var(--bg)]"
         >
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
@@ -332,7 +332,7 @@ export default function OgiPage() {
         <section className="bg-[color:var(--bg)] px-4 py-6 sm:px-6 lg:px-8">
           <div className="container-max">
             <p className="mx-auto max-w-3xl text-center text-xs text-[color:var(--text-faint)]">
-              This is an advisory review of outbound message quality. It does not constitute legal, regulatory, or compliance advice.
+              This is an advisory assessment of outbound message quality. It does not constitute legal, regulatory, or compliance advice.
             </p>
           </div>
         </section>
