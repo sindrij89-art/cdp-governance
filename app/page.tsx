@@ -237,7 +237,7 @@ export default function Home() {
                 Which Engagement Is Right?
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--why-text)]">
-                The Outbound Install governs what your team says. The CDP Pilot governs how pipeline decisions are made and recorded. Most teams start with outbound. Some need both.
+                The Outbound Governance Install governs what your team says. The CDP 30-Day Pilot governs how pipeline decisions are made and recorded. Most teams start with outbound. Some need both.
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link
@@ -250,7 +250,7 @@ export default function Home() {
                   href="/cdp"
                   className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-[color:var(--border)] px-8 py-3.5 text-base font-medium text-[color:var(--text)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2"
                 >
-                  Explore the CDP Pilot &rarr;
+                  Explore the CDP 30-Day Pilot &rarr;
                 </Link>
               </div>
             </div>

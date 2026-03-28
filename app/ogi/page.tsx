@@ -163,7 +163,7 @@ export default function OgiPage() {
                   </h2>
                   <ul className="mt-6 space-y-3">
                     {[
-                      "Teams needing pipeline governance, CRM work, or sales training \u2014 that is the CDP Pilot",
+                      "Teams needing pipeline governance, CRM work, or sales training \u2014 that is the CDP 30-Day Pilot",
                       "Organisations without active outbound to review",
                       "Teams looking for ongoing advisory or coaching",
                     ].map((item) => (
@@ -316,13 +316,13 @@ export default function OgiPage() {
           <div className="container-max">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-lg leading-relaxed text-[color:var(--why-text)]">
-                This install governs what your team says. If you also need to govern how pipeline decisions are made and recorded, the CDP Pilot addresses that directly.
+                This install governs what your team says. If you also need to govern how pipeline decisions are made and recorded, the CDP 30-Day Pilot addresses that directly.
               </p>
               <Link
                 href="/cdp"
                 className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-[color:var(--accent)] transition-colors hover:text-[color:var(--accent-hover)]"
               >
-                Learn about the CDP Pilot &rarr;
+                Learn about the CDP 30-Day Pilot &rarr;
               </Link>
             </div>
           </div>

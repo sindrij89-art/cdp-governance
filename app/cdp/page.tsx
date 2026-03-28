@@ -212,7 +212,7 @@ export default function CdpPage() {
                 ))}
               </ul>
               <p className="mt-6 text-sm font-medium text-[color:var(--text-muted)]">
-                Methodology-neutral. The pilot does not change how your team sells.
+                Methodology-neutral. Your team continues using its existing sales process.
               </p>
             </div>
           </div>
@@ -426,7 +426,7 @@ export default function CdpPage() {
                 href="/ogi"
                 className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-[color:var(--accent)] transition-colors hover:text-[color:var(--accent-hover)]"
               >
-                Learn about the Outbound Install &rarr;
+                Learn about the Outbound Governance Install &rarr;
               </Link>
             </div>
           </div>
