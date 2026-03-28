@@ -75,7 +75,7 @@ export default function PrivacyPage() {
                     We use the data you provide solely to:
                   </p>
                   <ul className="mt-3 list-disc space-y-1 pl-6">
-                    <li>Respond to your enquiry or application</li>
+                    <li>Respond to your enquiry or submission</li>
                     <li>Assess whether our services are a fit for your needs</li>
                     <li>Communicate with you about a potential or active engagement</li>
                   </ul>
