@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+type NavState = "top" | "hero" | "scrolled";
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [scrolled, setScrolled] = useState(false);
+  const [navState, setNavState] = useState<NavState>("top");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -18,10 +20,25 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
-      // Switch logo when scrolled past the hero section
+      const header = document.querySelector("header");
+      const headerHeight = header?.offsetHeight || 64;
       const hero = document.querySelector("[aria-labelledby*='hero']");
-      const threshold = hero ? hero.getBoundingClientRect().bottom + window.scrollY - 64 : 500;
-      setScrolled(window.scrollY > threshold);
+
+      if (!hero) {
+        // Pages without a hero (privacy, terms) — always "scrolled" style
+        setNavState("scrolled");
+        return;
+      }
+
+      const heroBottom = hero.getBoundingClientRect().bottom + window.scrollY - headerHeight;
+
+      if (window.scrollY < headerHeight) {
+        setNavState("top");
+      } else if (window.scrollY < heroBottom) {
+        setNavState("hero");
+      } else {
+        setNavState("scrolled");
+      }
     }
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -48,31 +65,43 @@ export default function Navbar() {
     }
   }
 
-  // In dark theme mode, navbar is always dark style regardless of scroll
-  const isDarkNav = theme === "dark" || !scrolled;
+  // In dark theme, always use dark nav styling
+  // In light theme: top = white bg showing through, hero = dark gradient behind, scrolled = frosted white
+  const useDarkLogo = theme === "dark" ? false : navState !== "hero";
+  const useWhiteLogo = !useDarkLogo;
 
-  const navBg = isDarkNav
+  const navBg = theme === "dark"
     ? "transparent"
-    : "rgba(255, 255, 255, 0.92)";
-  const navBorder = isDarkNav
+    : navState === "scrolled"
+      ? "rgba(255, 255, 255, 0.92)"
+      : "transparent";
+
+  const navBorder = theme === "dark"
     ? "#1A3A5C"
-    : "rgba(226, 232, 240, 0.8)";
-  const textColor = isDarkNav ? "#94a3b8" : "#64748b";
-  const textHover = isDarkNav ? "#ffffff" : "#0f172a";
-  const toggleBorder = isDarkNav ? "rgba(26, 58, 92, 1)" : "rgba(226, 232, 240, 1)";
-  const mobileToggleColor = isDarkNav ? "#94a3b8" : "#64748b";
-  const mobileHoverBg = isDarkNav ? "#0F2847" : "#f1f5f9";
+    : navState === "scrolled"
+      ? "rgba(226, 232, 240, 0.8)"
+      : navState === "hero"
+        ? "#1A3A5C"
+        : "rgba(226, 232, 240, 0.5)";
+
+  const isDarkText = theme === "dark" ? false : navState !== "hero";
+  const textColor = isDarkText ? "#64748b" : "#94a3b8";
+  const textHover = isDarkText ? "#0f172a" : "#ffffff";
+  const toggleBorder = isDarkText ? "rgba(226, 232, 240, 1)" : "rgba(26, 58, 92, 1)";
+  const mobileToggleColor = isDarkText ? "#64748b" : "#94a3b8";
+  const mobileBg = theme === "dark" ? "#0A1E3F" : navState === "scrolled" ? "#ffffff" : navState === "hero" ? "#0A1E3F" : "#ffffff";
+  const mobileHoverBg = isDarkText ? "#f1f5f9" : "#0F2847";
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-colors duration-300"
+      className="sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300"
       style={{
         backgroundColor: navBg,
         borderBottom: `1px solid ${navBorder}`,
       }}
     >
       <div className="container-max flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo — switches based on scroll position */}
+        {/* Logo — switches based on scroll state */}
         <Link href="/" className="flex items-center gap-3" aria-label="CDP Governance home">
           <Image
             src="/logo-cdp-white.png"
@@ -80,7 +109,7 @@ export default function Navbar() {
             width={160}
             height={40}
             className="h-10 w-auto"
-            style={{ display: isDarkNav ? "block" : "none" }}
+            style={{ display: useWhiteLogo ? "block" : "none" }}
             priority
           />
           <Image
@@ -89,7 +118,7 @@ export default function Navbar() {
             width={160}
             height={40}
             className="h-10 w-auto"
-            style={{ display: isDarkNav ? "none" : "block" }}
+            style={{ display: useDarkLogo ? "block" : "none" }}
             priority
           />
         </Link>
@@ -169,17 +198,9 @@ export default function Navbar() {
             stroke="currentColor"
           >
             {mobileOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             )}
           </svg>
         </button>
@@ -191,7 +212,7 @@ export default function Navbar() {
           aria-label="Mobile"
           className="px-4 py-4 md:hidden transition-colors duration-300"
           style={{
-            backgroundColor: isDarkNav ? "#0A1E3F" : "#ffffff",
+            backgroundColor: mobileBg,
             borderTop: `1px solid ${navBorder}`,
           }}
         >
@@ -218,7 +239,6 @@ export default function Navbar() {
             >
               CDP Pilot
             </Link>
-            {/* Mobile theme toggle */}
             <button
               onClick={toggleTheme}
               className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium"

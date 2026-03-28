@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" className="pt-16">
+      <main id="main-content">
         <section className="section-padding bg-[color:var(--bg)]">
           <div className="container-max">
             <div className="mx-auto max-w-3xl">
