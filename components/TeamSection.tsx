@@ -24,7 +24,7 @@ export default function TeamSection() {
                 </span>
               </h3>
               <p className="mt-2 text-base leading-relaxed text-[color:var(--why-text)]">
-                Delivery owner for governance design, CRM field specification,
+                Owns governance design, CRM field specification,
                 manager cadence, enablement, and the final measurement pack.
               </p>
             </div>
@@ -46,6 +46,9 @@ export default function TeamSection() {
 
           <p className="mt-10 text-sm font-medium text-[color:var(--text-muted)]">
             Named delivery ownership. Focused 30-day pilot.
+          </p>
+          <p className="mt-2 text-xs text-[color:var(--text-muted)]">
+            Roles are defined to prevent commercial pressure contaminating technical delivery.
           </p>
         </div>
       </div>

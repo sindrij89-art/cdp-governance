@@ -6,7 +6,7 @@ const faqs = [
   {
     question: "What is CDP?",
     answer:
-      "CDP (Clear Decision Protocol) is a sales governance overlay: rules, minimal CRM fields, manager routines, and measurement. It sits on top of your existing CRM and methodology \u2014 it does not replace either.",
+      "CDP (Clear Decision Protocol) is a CRM-agnostic governance overlay that enforces Yes / No / Still Open decisions with evidence and deadlines. No outcome guarantees. It sits on top of your existing CRM and methodology \u2014 it does not replace either.",
   },
   {
     question: "Who is the pilot for?",
@@ -21,12 +21,22 @@ const faqs = [
   {
     question: "How does it integrate with our CRM?",
     answer:
-      "CRM-agnostic. Any CRM that supports custom fields and data export. Compatibility is confirmed via a 15-minute pre-signature check.",
+      "CRM-agnostic; compatibility confirmed via a 15-minute pre-signature check. Any CRM that supports custom fields and data export is supported.",
   },
   {
     question: "Is it compliance-safe?",
     answer:
-      "Designed for ethical use. Supports evidence discipline. Does not provide legal, regulatory, or compliance advice \u2014 the client owns all regulatory interpretation. No outcomes are guaranteed.",
+      "CDP does not provide legal, regulatory, or compliance advice \u2014 the client retains sign-off on all regulatory interpretation. No outcome guarantees.",
+  },
+  {
+    question: "What about the scorecard?",
+    answer:
+      "The governance scorecard is pilot instrumentation only. It is explicitly prohibited for HR, compensation, or termination decisions.",
+  },
+  {
+    question: "Does CDP automate anything?",
+    answer:
+      "No automation promises. Collapse and decision-forcing are manual processes supported by training and manager cadence. CDP enforces discipline, not automation.",
   },
   {
     question: "How long does setup take?",

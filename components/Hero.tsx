@@ -1,10 +1,3 @@
-const proofChips = [
-  "UK-only",
-  "30-day pilot",
-  "Non-renewing",
-  "Acceptance = D1\u2013D8 delivered",
-];
-
 export default function Hero() {
   return (
     <section
@@ -155,22 +148,21 @@ export default function Hero() {
 
           {/* Subhead */}
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--hero-text-muted)] sm:text-xl">
-            A governance layer designed to support clear
-            Yes&nbsp;/&nbsp;No&nbsp;/&nbsp;Still&nbsp;Open outcomes, evidence
-            tracking, and disciplined follow-ups.
+            A sales-governance overlay that enforces clear
+            Yes&nbsp;/&nbsp;No&nbsp;/&nbsp;Still&nbsp;Open states, evidence
+            capture, and disciplined follow-up — without replacing your CRM or
+            sales process.
           </p>
 
-          {/* Micro-proof chips */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-            {proofChips.map((chip) => (
-              <span
-                key={chip}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1 text-xs font-medium tracking-wide text-[color:var(--hero-text-muted)] backdrop-blur-sm"
-              >
-                {chip}
-              </span>
-            ))}
-          </div>
+          {/* Positioning one-liner (verbatim across Hero, Footer, FAQ) */}
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[color:var(--hero-text-muted)]">
+            A CRM-agnostic governance overlay that enforces Yes/No/Still Open decisions with evidence and deadlines. No outcome guarantees.
+          </p>
+
+          {/* Proof line */}
+          <p className="mx-auto mt-6 max-w-2xl text-sm font-medium tracking-wide text-[color:var(--hero-text-muted)]">
+            UK-only &bull; 30-day pilot &bull; Non-renewing by default &bull; Acceptance&nbsp;=&nbsp;D1–D8 delivered
+          </p>
 
           {/* CTA block */}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -195,21 +187,23 @@ export default function Hero() {
               </svg>
             </a>
             <a
-              href="https://app.cdp-governance.com/install"
+              href="#apply"
               className="font-heading inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-white/15 px-9 py-3.5 text-base font-medium text-[color:var(--hero-text-muted)] ring-1 ring-inset ring-white/[0.06] transition-all hover:border-white/30 hover:bg-white/[0.04] hover:text-[color:var(--hero-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--hero-bg)]"
             >
-              Install on your phone
+              Request Evaluation Pack
             </a>
           </div>
 
           <p className="mx-auto mt-4 max-w-lg text-sm text-white/50">
-            Operators can use the web app, or optionally install it to their home screen.
+            <a href="https://app.cdp-governance.com/install" className="underline hover:text-white/70 transition-colors">
+              Install on your phone
+            </a>{" "}
+            — or use the web app directly.
           </p>
 
           {/* Footnote */}
           <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-white/30">
-            Deliverables-based pilot. Measurement supported; outcomes not
-            guaranteed.
+            Deliverables-based pilot. Measurement supported; no outcome guarantees.
           </p>
         </div>
       </div>

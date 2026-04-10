@@ -112,30 +112,36 @@ export default function SignupForm() {
       <section
         id="apply"
         aria-labelledby="apply-heading"
-        className="section-padding bg-[color:var(--bg)]"
+        className="section-paper section-padding"
       >
         <div className="container-max">
-          <div className="mx-auto max-w-xl rounded-2xl border border-[color:var(--success-border)] bg-[color:var(--success-bg)] p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--success-icon-bg)]">
+          <div
+            className="mx-auto max-w-xl border p-8 text-center"
+            style={{
+              borderColor: "rgba(16, 185, 129, 0.3)",
+              background: "var(--color-paper-surface)",
+            }}
+          >
+            <div
+              className="mx-auto mb-4 flex h-12 w-12 items-center justify-center"
+              style={{ background: "var(--color-accent-muted)" }}
+            >
               <svg
-                className="h-6 w-6 text-[color:var(--success-icon)]"
+                className="h-6 w-6"
+                style={{ color: "var(--color-accent)" }}
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h3 id="apply-heading" className="text-xl font-semibold text-[color:var(--success-heading)]">
+            <h3 id="apply-heading" style={{ color: "var(--color-text-dark)" }}>
               Submission Received
             </h3>
-            <p className="mt-2 text-[color:var(--success-text)]">
+            <p className="mt-2" style={{ color: "var(--color-text-dark-secondary)" }}>
               We review fit, CRM compatibility, and delivery constraints before issuing next steps.
             </p>
           </div>
@@ -144,27 +150,22 @@ export default function SignupForm() {
     );
   }
 
-  const inputBase =
-    "mt-1 block w-full rounded-lg border bg-[color:var(--input-bg)] px-4 py-2.5 text-[color:var(--input-text)] shadow-sm transition-colors placeholder:text-[color:var(--input-placeholder)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]";
-  const inputNormal = `${inputBase} border-[color:var(--input-border)]`;
-  const inputError = `${inputBase} border-red-500`;
+  const labelClass = "block text-xs uppercase tracking-wider mb-2";
+  const labelStyle = { color: "var(--color-text-dark-secondary)", letterSpacing: "0.05em" };
 
   return (
     <section
       id="apply"
       aria-labelledby="apply-heading"
-      className="section-padding bg-[color:var(--bg)]"
+      className="section-paper section-padding"
     >
       <div className="container-max">
         <div className="mx-auto max-w-xl">
           <div className="text-center">
-            <h2
-              id="apply-heading"
-              className="text-3xl font-semibold tracking-tight sm:text-4xl"
-            >
+            <h2 id="apply-heading">
               Check Pilot Fit
             </h2>
-            <p className="mt-4 text-lg text-[color:var(--text-muted)]">
+            <p className="mt-4 text-lg" style={{ color: "var(--color-text-dark-secondary)" }}>
               Tell us about your team and how pipeline governance may be relevant.
             </p>
           </div>
@@ -177,8 +178,8 @@ export default function SignupForm() {
           >
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-[color:var(--text)]">
-                Full Name <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="name" className={labelClass} style={labelStyle}>
+                Full Name <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <input
                 type="text"
@@ -187,12 +188,13 @@ export default function SignupForm() {
                 required
                 value={form.name}
                 onChange={handleChange}
-                className={fieldErrors.name ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.name ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.name ? "var(--color-error)" : undefined }}
                 placeholder="Jane Smith"
                 aria-describedby={fieldErrors.name ? "name-error" : undefined}
               />
               {fieldErrors.name && (
-                <p id="name-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="name-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.name}
                 </p>
               )}
@@ -200,8 +202,8 @@ export default function SignupForm() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-[color:var(--text)]">
-                Work Email <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="email" className={labelClass} style={labelStyle}>
+                Work Email <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <input
                 type="email"
@@ -210,12 +212,13 @@ export default function SignupForm() {
                 required
                 value={form.email}
                 onChange={handleChange}
-                className={fieldErrors.email ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.email ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.email ? "var(--color-error)" : undefined }}
                 placeholder="jane@company.com"
                 aria-describedby={fieldErrors.email ? "email-error" : undefined}
               />
               {fieldErrors.email && (
-                <p id="email-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="email-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.email}
                 </p>
               )}
@@ -223,8 +226,8 @@ export default function SignupForm() {
 
             {/* Company Size */}
             <div>
-              <label htmlFor="companySize" className="block text-sm font-medium text-[color:var(--text)]">
-                Company Size <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="companySize" className={labelClass} style={labelStyle}>
+                Company Size <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <select
                 id="companySize"
@@ -232,7 +235,8 @@ export default function SignupForm() {
                 required
                 value={form.companySize}
                 onChange={handleChange}
-                className={fieldErrors.companySize ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.companySize ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.companySize ? "var(--color-error)" : undefined }}
                 aria-describedby={fieldErrors.companySize ? "companySize-error" : undefined}
               >
                 <option value="">Select company size</option>
@@ -241,7 +245,7 @@ export default function SignupForm() {
                 <option value="51+">51+ employees</option>
               </select>
               {fieldErrors.companySize && (
-                <p id="companySize-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="companySize-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.companySize}
                 </p>
               )}
@@ -249,8 +253,8 @@ export default function SignupForm() {
 
             {/* Role */}
             <div>
-              <label htmlFor="role" className="block text-sm font-medium text-[color:var(--text)]">
-                Your Role <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="role" className={labelClass} style={labelStyle}>
+                Your Role <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <select
                 id="role"
@@ -258,7 +262,8 @@ export default function SignupForm() {
                 required
                 value={form.role}
                 onChange={handleChange}
-                className={fieldErrors.role ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.role ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.role ? "var(--color-error)" : undefined }}
                 aria-describedby={fieldErrors.role ? "role-error" : undefined}
               >
                 <option value="">Select your role</option>
@@ -267,7 +272,7 @@ export default function SignupForm() {
                 <option value="Other">Other</option>
               </select>
               {fieldErrors.role && (
-                <p id="role-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="role-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.role}
                 </p>
               )}
@@ -275,8 +280,8 @@ export default function SignupForm() {
 
             {/* Why this may be relevant */}
             <div>
-              <label htmlFor="whyCdp" className="block text-sm font-medium text-[color:var(--text)]">
-                Why this may be relevant <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="whyCdp" className={labelClass} style={labelStyle}>
+                Why this may be relevant <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <textarea
                 id="whyCdp"
@@ -285,12 +290,20 @@ export default function SignupForm() {
                 required
                 value={form.whyCdp}
                 onChange={handleChange}
-                className={fieldErrors.why ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.why ? "input-underline-error" : ""}`}
+                style={{
+                  color: "var(--color-text-dark)",
+                  border: "1px solid var(--color-paper-border)",
+                  borderRadius: 0,
+                  padding: "0.625rem",
+                  minHeight: "120px",
+                  borderColor: fieldErrors.why ? "var(--color-error)" : undefined,
+                }}
                 placeholder="Tell us about your team&#39;s governance challenges and what you hope the pilot can support..."
                 aria-describedby={fieldErrors.why ? "why-error" : undefined}
               />
               {fieldErrors.why && (
-                <p id="why-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="why-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.why}
                 </p>
               )}
@@ -299,7 +312,12 @@ export default function SignupForm() {
             {/* Global error */}
             {status === "error" && errorMessage && !Object.keys(fieldErrors).length && (
               <div
-                className="rounded-lg border border-[color:var(--error-border)] bg-[color:var(--error-bg)] p-3 text-sm text-[color:var(--error-text)]"
+                className="border p-3 text-sm"
+                style={{
+                  borderColor: "rgba(239,68,68,0.3)",
+                  background: "rgba(239,68,68,0.1)",
+                  color: "var(--color-error)",
+                }}
                 role="alert"
               >
                 {errorMessage}
@@ -310,7 +328,16 @@ export default function SignupForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="font-heading flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--accent)] px-6 py-3 text-base font-semibold text-[color:var(--accent-contrast)] shadow-sm transition-all hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)] disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex min-h-[44px] w-full items-center justify-center gap-2 px-6 py-4 text-base uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+              style={{
+                backgroundColor: "var(--color-text-dark)",
+                color: "var(--color-paper)",
+                border: "none",
+                letterSpacing: "0.05em",
+                transition: "background-color var(--duration-global) var(--ease-global)",
+              }}
+              onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "var(--color-accent)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "var(--color-text-dark)"; }}
             >
               {status === "loading" ? (
                 <>
@@ -323,20 +350,20 @@ export default function SignupForm() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  Submitting&hellip;
+                  PROCESSING
                 </>
               ) : (
-                "Check pilot fit"
+                "CHECK PILOT FIT"
               )}
             </button>
 
-            <p className="text-center text-xs text-[color:var(--text-faint)]">
+            <p className="text-center text-xs" style={{ color: "var(--color-text-dark-secondary)" }}>
               We review fit, CRM compatibility, and delivery constraints before issuing next steps.
             </p>
 
-            <p className="text-center text-xs text-[color:var(--text-faint)]">
+            <p className="text-center text-xs" style={{ color: "var(--color-text-dark-secondary)" }}>
               By submitting, you agree to our{" "}
-              <a href="/privacy" className="underline text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
+              <a href="/privacy" className="underline" style={{ color: "var(--color-text-dark-secondary)" }}>
                 Privacy Policy
               </a>
               .

@@ -6,22 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        cdp: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e3a5f",
-          900: "#0f172a",
-        },
-      },
       fontFamily: {
         sans: [
+          "var(--font-inter)",
           "Inter",
           "system-ui",
           "-apple-system",
@@ -29,11 +16,15 @@ module.exports = {
           "Roboto",
           "sans-serif",
         ],
-        heading: [
-          "Montserrat",
-          "system-ui",
-          "sans-serif",
+        mono: [
+          "var(--font-mono)",
+          "JetBrains Mono",
+          "ui-monospace",
+          "monospace",
         ],
+      },
+      gridTemplateColumns: {
+        20: "repeat(20, 1fr)",
       },
     },
   },

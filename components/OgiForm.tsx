@@ -97,13 +97,23 @@ export default function OgiForm() {
       <section
         id="ogi-form"
         aria-labelledby="ogi-form-heading"
-        className="section-padding bg-[color:var(--bg)]"
+        className="section-paper section-padding"
       >
         <div className="container-max">
-          <div className="mx-auto max-w-xl rounded-2xl border border-[color:var(--success-border)] bg-[color:var(--success-bg)] p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--success-icon-bg)]">
+          <div
+            className="mx-auto max-w-xl border p-8 text-center"
+            style={{
+              borderColor: "rgba(16, 185, 129, 0.3)",
+              background: "var(--color-paper-surface)",
+            }}
+          >
+            <div
+              className="mx-auto mb-4 flex h-12 w-12 items-center justify-center"
+              style={{ background: "var(--color-accent-muted)" }}
+            >
               <svg
-                className="h-6 w-6 text-[color:var(--success-icon)]"
+                className="h-6 w-6"
+                style={{ color: "var(--color-accent)" }}
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
@@ -113,10 +123,10 @@ export default function OgiForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h3 id="ogi-form-heading" className="text-xl font-semibold text-[color:var(--success-heading)]">
+            <h3 id="ogi-form-heading" style={{ color: "var(--color-text-dark)" }}>
               Fit Review Requested
             </h3>
-            <p className="mt-2 text-[color:var(--success-text)]">
+            <p className="mt-2" style={{ color: "var(--color-text-dark-secondary)" }}>
               Request received &mdash; we&apos;ll review and respond within 48 hours.
             </p>
           </div>
@@ -125,27 +135,22 @@ export default function OgiForm() {
     );
   }
 
-  const inputBase =
-    "mt-1 block w-full rounded-lg border bg-[color:var(--input-bg)] px-4 py-2.5 text-[color:var(--input-text)] shadow-sm transition-colors placeholder:text-[color:var(--input-placeholder)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]";
-  const inputNormal = `${inputBase} border-[color:var(--input-border)]`;
-  const inputError = `${inputBase} border-red-500`;
+  const labelClass = "block text-xs uppercase tracking-wider mb-2";
+  const labelStyle = { color: "var(--color-text-dark-secondary)", letterSpacing: "0.05em" };
 
   return (
     <section
       id="ogi-form"
       aria-labelledby="ogi-form-heading"
-      className="section-padding bg-[color:var(--bg)]"
+      className="section-paper section-padding"
     >
       <div className="container-max">
         <div className="mx-auto max-w-xl">
           <div className="text-center">
-            <h2
-              id="ogi-form-heading"
-              className="text-3xl font-semibold tracking-tight sm:text-4xl"
-            >
+            <h2 id="ogi-form-heading">
               Request a Fit Review
             </h2>
-            <p className="mt-4 text-lg text-[color:var(--text-muted)]">
+            <p className="mt-4 text-lg" style={{ color: "var(--color-text-dark-secondary)" }}>
               Tell us about your outbound and we&apos;ll confirm whether the install is a match.
             </p>
           </div>
@@ -158,8 +163,8 @@ export default function OgiForm() {
           >
             {/* Full Name */}
             <div>
-              <label htmlFor="ogi-name" className="block text-sm font-medium text-[color:var(--text)]">
-                Full Name <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="ogi-name" className={labelClass} style={labelStyle}>
+                Full Name <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <input
                 type="text"
@@ -168,12 +173,13 @@ export default function OgiForm() {
                 required
                 value={form.name}
                 onChange={handleChange}
-                className={fieldErrors.name ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.name ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.name ? "var(--color-error)" : undefined }}
                 placeholder="Jane Smith"
                 aria-describedby={fieldErrors.name ? "ogi-name-error" : undefined}
               />
               {fieldErrors.name && (
-                <p id="ogi-name-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="ogi-name-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.name}
                 </p>
               )}
@@ -181,8 +187,8 @@ export default function OgiForm() {
 
             {/* Work Email */}
             <div>
-              <label htmlFor="ogi-email" className="block text-sm font-medium text-[color:var(--text)]">
-                Work Email <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="ogi-email" className={labelClass} style={labelStyle}>
+                Work Email <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <input
                 type="email"
@@ -191,12 +197,13 @@ export default function OgiForm() {
                 required
                 value={form.email}
                 onChange={handleChange}
-                className={fieldErrors.email ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.email ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.email ? "var(--color-error)" : undefined }}
                 placeholder="jane@company.com"
                 aria-describedby={fieldErrors.email ? "ogi-email-error" : undefined}
               />
               {fieldErrors.email && (
-                <p id="ogi-email-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="ogi-email-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.email}
                 </p>
               )}
@@ -204,7 +211,7 @@ export default function OgiForm() {
 
             {/* Company (optional) */}
             <div>
-              <label htmlFor="ogi-company" className="block text-sm font-medium text-[color:var(--text)]">
+              <label htmlFor="ogi-company" className={labelClass} style={labelStyle}>
                 Company
               </label>
               <input
@@ -213,15 +220,16 @@ export default function OgiForm() {
                 name="company"
                 value={form.company}
                 onChange={handleChange}
-                className={inputNormal}
+                className="input-underline"
+                style={{ color: "var(--color-text-dark)" }}
                 placeholder="Acme Insurance Ltd"
               />
             </div>
 
             {/* Primary Outbound Channel */}
             <div>
-              <label htmlFor="ogi-channel" className="block text-sm font-medium text-[color:var(--text)]">
-                Primary Outbound Channel <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="ogi-channel" className={labelClass} style={labelStyle}>
+                Primary Outbound Channel <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <select
                 id="ogi-channel"
@@ -229,7 +237,8 @@ export default function OgiForm() {
                 required
                 value={form.channel}
                 onChange={handleChange}
-                className={fieldErrors.channel ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.channel ? "input-underline-error" : ""}`}
+                style={{ color: "var(--color-text-dark)", borderBottomColor: fieldErrors.channel ? "var(--color-error)" : undefined }}
                 aria-describedby={fieldErrors.channel ? "ogi-channel-error" : undefined}
               >
                 <option value="">Select channel</option>
@@ -239,7 +248,7 @@ export default function OgiForm() {
                 <option value="Other">Other</option>
               </select>
               {fieldErrors.channel && (
-                <p id="ogi-channel-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="ogi-channel-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.channel}
                 </p>
               )}
@@ -247,8 +256,8 @@ export default function OgiForm() {
 
             {/* Description */}
             <div>
-              <label htmlFor="ogi-description" className="block text-sm font-medium text-[color:var(--text)]">
-                Brief description of current outbound <span className="text-[color:var(--error-text)]">*</span>
+              <label htmlFor="ogi-description" className={labelClass} style={labelStyle}>
+                Brief description of current outbound <span style={{ color: "var(--color-accent)" }}>*</span>
               </label>
               <textarea
                 id="ogi-description"
@@ -257,12 +266,20 @@ export default function OgiForm() {
                 required
                 value={form.description}
                 onChange={handleChange}
-                className={fieldErrors.description ? inputError : inputNormal}
+                className={`input-underline ${fieldErrors.description ? "input-underline-error" : ""}`}
+                style={{
+                  color: "var(--color-text-dark)",
+                  border: "1px solid var(--color-paper-border)",
+                  borderRadius: 0,
+                  padding: "0.625rem",
+                  minHeight: "120px",
+                  borderColor: fieldErrors.description ? "var(--color-error)" : undefined,
+                }}
                 placeholder="What does your team currently send, to whom, and through which channels?"
                 aria-describedby={fieldErrors.description ? "ogi-desc-error" : undefined}
               />
               {fieldErrors.description && (
-                <p id="ogi-desc-error" className="mt-1 text-sm text-[color:var(--error-text)]" role="alert">
+                <p id="ogi-desc-error" className="mt-1 text-sm" style={{ color: "var(--color-error)" }} role="alert">
                   {fieldErrors.description}
                 </p>
               )}
@@ -271,7 +288,12 @@ export default function OgiForm() {
             {/* Global error */}
             {status === "error" && errorMessage && !Object.keys(fieldErrors).length && (
               <div
-                className="rounded-lg border border-[color:var(--error-border)] bg-[color:var(--error-bg)] p-3 text-sm text-[color:var(--error-text)]"
+                className="border p-3 text-sm"
+                style={{
+                  borderColor: "rgba(239,68,68,0.3)",
+                  background: "rgba(239,68,68,0.1)",
+                  color: "var(--color-error)",
+                }}
                 role="alert"
               >
                 {errorMessage}
@@ -282,7 +304,16 @@ export default function OgiForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="font-heading flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--accent)] px-6 py-3 text-base font-semibold text-[color:var(--accent-contrast)] shadow-sm transition-all hover:bg-[color:var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)] disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex min-h-[44px] w-full items-center justify-center gap-2 px-6 py-4 text-base uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+              style={{
+                backgroundColor: "var(--color-text-dark)",
+                color: "var(--color-paper)",
+                border: "none",
+                letterSpacing: "0.05em",
+                transition: "background-color var(--duration-global) var(--ease-global)",
+              }}
+              onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "var(--color-accent)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "var(--color-text-dark)"; }}
             >
               {status === "loading" ? (
                 <>
@@ -295,20 +326,20 @@ export default function OgiForm() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  Submitting&hellip;
+                  PROCESSING
                 </>
               ) : (
-                "Request Fit Review"
+                "REQUEST FIT REVIEW"
               )}
             </button>
 
-            <p className="text-center text-xs text-[color:var(--text-faint)]">
+            <p className="text-center text-xs" style={{ color: "var(--color-text-dark-secondary)" }}>
               We review submissions manually and reply if the engagement appears in scope.
             </p>
 
-            <p className="text-center text-xs text-[color:var(--text-faint)]">
+            <p className="text-center text-xs" style={{ color: "var(--color-text-dark-secondary)" }}>
               By submitting, you agree to our{" "}
-              <a href="/privacy" className="underline text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
+              <a href="/privacy" className="underline" style={{ color: "var(--color-text-dark-secondary)" }}>
                 Privacy Policy
               </a>
               .

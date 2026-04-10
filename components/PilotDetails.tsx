@@ -7,7 +7,7 @@ const inclusions = [
   {
     label: "16-Session Training Programme",
     description:
-      "Structured sessions designed to support adoption across operators and managers over the 30-day pilot.",
+      "Structured sessions designed to support adoption across operators and managers over the 30-day pilot. Named patterns (RHO, FSWP, BVC, Collapse) are included in training and playbook deliverables (D3/D8). These are internal operating labels; they describe conversational mechanics, not claims of outcomes.",
   },
   {
     label: "Operator Certification + Scorecard",
@@ -42,16 +42,16 @@ export default function PilotDetails() {
               Structured for Real-World Validation
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-[color:var(--text)]">
-              The CDP Pilot runs for 30 calendar days from kick-off and is
-              designed for UK-based sales teams of 5&ndash;10 operators, 1&ndash;2
-              managers, 1 team. What is installed: a decision-forcing governance
-              overlay — minimal CRM fields, a 16-session training programme,
-              manager oversight routines, and a measurement framework.
+              The CDP Pilot runs for 30 calendar days from kick-off. One team
+              (5–10 operators, 1–2 managers). What is installed: a
+              decision-forcing sales-governance overlay — minimal CRM fields, a
+              16-session training programme, manager oversight routines, and a
+              measurement framework.
             </p>
             <p className="mt-4 text-base text-[color:var(--text-muted)]">
-              Acceptance = D1&ndash;D8 delivered (deliverables provided, not
-              outcomes achieved). Non-renewing by default. Measured, not
-              guaranteed.
+              Non-renewing by default; continuation only via separate opt-in
+              proposal. Acceptance = D1–D8 delivered (deliverables provided, not
+              outcomes achieved).
             </p>
 
             {/* Key metrics */}

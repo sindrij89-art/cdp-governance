@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import SystemStatus from "./SystemStatus";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[color:var(--footer-border)] bg-[color:var(--footer-bg)]">
+    <footer
+      className="border-t"
+      style={{
+        borderColor: "var(--color-border)",
+        backgroundColor: "var(--color-surface-0)",
+      }}
+    >
       <div className="container-max px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
           {/* Brand */}
@@ -18,24 +25,37 @@ export default function Footer() {
           </Link>
 
           {/* Links */}
-          <nav aria-label="Footer" className="flex flex-wrap items-center gap-6 text-sm text-[color:var(--footer-text)]">
+          <nav
+            aria-label="Footer"
+            className="flex flex-wrap items-center gap-6 text-sm"
+            style={{ color: "var(--color-text-secondary)" }}
+          >
             <a
               href="mailto:contact@cdp-governance.com"
-              className="transition-colors hover:text-[color:var(--accent)]"
+              className="transition-colors hover:text-[color:var(--color-accent)]"
             >
               contact@cdp-governance.com
             </a>
-            <Link href="/privacy" className="transition-colors hover:text-[color:var(--accent)]">
+            <Link href="/privacy" className="transition-colors hover:text-[color:var(--color-accent)]">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-[color:var(--accent)]">
+            <Link href="/terms" className="transition-colors hover:text-[color:var(--color-accent)]">
               Terms of Service
             </Link>
           </nav>
         </div>
 
-        <div className="mt-6 border-t border-[color:var(--footer-border)] pt-6 text-center text-sm text-[color:var(--footer-text-faint)]">
-          &copy; {new Date().getFullYear()} CDP Governance. All rights reserved.
+        <div
+          className="mt-6 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:flex-row"
+          style={{ borderColor: "var(--color-border)" }}
+        >
+          <p
+            className="text-center text-sm sm:text-left"
+            style={{ color: "var(--color-text-secondary)" }}
+          >
+            &copy; {new Date().getFullYear()} CDP Governance. All rights reserved.
+          </p>
+          <SystemStatus />
         </div>
       </div>
     </footer>
