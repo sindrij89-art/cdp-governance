@@ -106,7 +106,7 @@ export default function CdpContent() {
         >
           <ScrollReveal className="mx-auto max-w-3xl lg:max-w-none lg:pr-4">
             <h2 id="cdp-behaviours-heading">Three Governance Behaviours</h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
               {behaviours.map((b) => (
                 <div
                   key={b.title}
@@ -252,7 +252,7 @@ export default function CdpContent() {
         >
           <ScrollReveal className="mx-auto max-w-3xl lg:max-w-none lg:pr-4">
             <h2 id="cdp-pilot-heading">Pilot Details</h2>
-            <div className="mt-8 grid grid-cols-3 gap-6">
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div>
                 <p className="font-mono text-3xl" style={{ color: "var(--color-text-primary)" }}>30</p>
                 <p className="mt-1 text-sm" style={{ color: "var(--color-text-secondary)" }}>Calendar Days</p>
