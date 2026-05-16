@@ -15,7 +15,6 @@ export default function TeamSection() {
           </h2>
 
           <div className="mt-10 space-y-8">
-            {/* Entry 1 */}
             <div>
               <h3 className="text-lg font-semibold">
                 Sindri J&oacute;nsson{" "}
@@ -26,20 +25,6 @@ export default function TeamSection() {
               <p className="mt-2 text-base leading-relaxed text-[color:var(--why-text)]">
                 Owns governance design, CRM field specification,
                 manager cadence, enablement, and the final measurement pack.
-              </p>
-            </div>
-
-            {/* Entry 2 */}
-            <div>
-              <h3 className="text-lg font-semibold">
-                Andrej Pelko{" "}
-                <span className="font-normal text-[color:var(--text-muted)]">
-                  — Revenue Operations &amp; Governance (Operations / QA)
-                </span>
-              </h3>
-              <p className="mt-2 text-base leading-relaxed text-[color:var(--why-text)]">
-                Supports instrumentation, data hygiene checks, evidence capture
-                standards, and pilot run logging under direction.
               </p>
             </div>
           </div>

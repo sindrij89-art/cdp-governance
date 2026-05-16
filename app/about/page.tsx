@@ -52,14 +52,6 @@ export default function AboutPage() {
                     </span>
                   </h3>
                 </div>
-                <div>
-                  <h3>
-                    Andrej Pelko{" "}
-                    <span style={{ color: "var(--color-text-secondary)" }}>
-                      &mdash; Operations &amp; QA. Instrumentation, data hygiene, evidence capture.
-                    </span>
-                  </h3>
-                </div>
               </div>
             </div>
 
